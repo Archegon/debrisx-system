@@ -2,59 +2,44 @@ from picamera2 import Picamera2
 import time
 import io
 
-def take_still_image():
-    camera = Picamera2()
-    
-    # Use a suitable configuration for still images or low-resolution streaming
-    camera_config = camera.create_still_configuration()
-    camera.configure(camera_config)
-    camera.start()
+class Camera:
+    def __init__(self):
+        self.camera = Picamera2()
+        self.stream = io.BytesIO()
+        self.started = False
 
-    try:
-        # Allow camera some time to adjust to conditions
-        time.sleep(2)
-        stream = io.BytesIO()
-        
-        # Request a JPEG capture
-        camera.capture_file(stream, format='jpeg')
-        stream.seek(0)
-        frame = stream.read()
+    def use_still_config(self):
+        if self.started:
+            self.stop()
 
-        # Reset stream for next capture
-        stream.seek(0)
-        stream.truncate()
-        
-        return frame
+        camera_config = self.camera.create_still_configuration()
+        camera_config["main"]["size"] = (640, 480)
+        self.camera.configure(camera_config)
 
-    finally:
-        camera.stop()
+    def use_video_config(self):
+        camera_config = self.camera.create_video_configuration()
+        camera_config["main"]["format"] = "YUV420"  # Use a suitable format for video
+        camera_config["main"]["size"] = (640, 480)    # Set desired resolution
+        self.camera.configure(camera_config)
 
-def generate_frames():
-    camera = Picamera2()
-    
-    # Use a suitable configuration for still images or low-resolution streaming
-    camera_config = camera.create_still_configuration()
-    camera.configure(camera_config)
-    camera.start()
+    def start(self):
+        self.camera.start()
+        self.started = True
 
-    try:
-        # Allow camera some time to adjust to conditions
-        time.sleep(2)
-        
-        # Continuously capture images
-        while True:
-            stream = io.BytesIO()
-            # Request a JPEG capture
-            camera.capture_file(stream, format='jpeg')
-            stream.seek(0)
-            frame = stream.read()
+    def stop(self):
+        self.camera.stop()
+        self.started = False
 
-            # Reset stream for next capture
-            stream.seek(0)
-            stream.truncate()
-            
-            yield frame
+    def take_still_image(self):
+        self.use_still_config()
+        self.start()
 
-    finally:
-        camera.stop()
+        try:
+            time.sleep(2)
+            self.camera.capture_file(self.stream, format='jpeg')
+            self.stream.seek(0)
+            frame = self.stream.read()
+            return frame
+        finally:
+            self.stop()
 
