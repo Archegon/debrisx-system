@@ -1,45 +1,38 @@
+import numpy as np
+import cv2
 from picamera2 import Picamera2
-import time
-import io
+from threading import Thread, Condition
 
-class Camera:
-    def __init__(self):
+class PiCameraStream:
+    def __init__(self, resolution=(640, 480)):
         self.camera = Picamera2()
-        self.stream = io.BytesIO()
-        self.started = False
-
-    def use_still_config(self):
-        if self.started:
-            self.stop()
-
-        camera_config = self.camera.create_still_configuration()
-        camera_config["main"]["size"] = (640, 480)
-        self.camera.configure(camera_config)
-
-    def use_video_config(self):
-        camera_config = self.camera.create_video_configuration()
-        camera_config["main"]["format"] = "YUV420"  # Use a suitable format for video
-        camera_config["main"]["size"] = (640, 480)    # Set desired resolution
-        self.camera.configure(camera_config)
+        self.config = self.camera.create_preview_configuration(main={"size": resolution})
+        self.camera.configure(self.config)
+        self.frame = None
+        self.streaming = False
+        self.condition = Condition()
 
     def start(self):
-        self.camera.start()
-        self.started = True
+        if not self.streaming:
+            self.streaming = True
+            self.camera.start()
+            self.thread = Thread(target=self.update, args=())
+            self.thread.start()
 
+    def update(self):
+        while self.streaming:
+            buffer = self.camera.capture_array()
+            with self.condition:
+                self.frame = cv2.cvtColor(np.array(buffer), cv2.COLOR_BGR2RGB)
+                self.condition.notify_all()
+
+    def get_frame(self):
+        with self.condition:
+            self.condition.wait()
+            frame = self.frame.copy()
+        return frame
+    
     def stop(self):
+        self.streaming = False
+        self.thread.join()
         self.camera.stop()
-        self.started = False
-
-    def take_still_image(self):
-        self.use_still_config()
-        self.start()
-
-        try:
-            time.sleep(2)
-            self.camera.capture_file(self.stream, format='jpeg')
-            self.stream.seek(0)
-            frame = self.stream.read()
-            return frame
-        finally:
-            self.stop()
-

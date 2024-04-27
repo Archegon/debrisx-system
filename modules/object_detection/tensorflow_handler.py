@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
 import io
+import time
 import tflite_runtime.interpreter as tflite
 from picamera2 import Picamera2
-import time
 
 MODEL_PATH = "/home/debrisx/debrisx-system/models/1.tflite"
 LABEL_PATH = "/home/debrisx/debrisx-system/models/coco-labels-2014_2017.txt"
@@ -82,8 +82,8 @@ def detect_objects(frame, model_path):
     return detections
 
 def apply_nms(detections):
-    boxes = [det[3] for det in detections]  # det[3] should be the bounding box (x, y, w, h)
-    scores = [det[2] for det in detections]  # det[2] should be the score
+    boxes = [det[3] for det in detections]  # Extract bounding boxes
+    scores = [det[2] for det in detections]  # Extract scores
 
     # Convert lists to numpy arrays for OpenCV
     boxes = np.array(boxes)
@@ -92,11 +92,12 @@ def apply_nms(detections):
     # Apply Non-Maximum Suppression
     indices = cv2.dnn.NMSBoxes(boxes.tolist(), scores.tolist(), 0.5, 0.4)
 
-    # Convert indices to a flat list if not empty
-    if indices.size > 0:
-        indices = indices.flatten()  # Flatten the array to handle both single and multiple results correctly
+    # Properly check if indices is not empty and handle the data
+    if indices is not None and len(indices) > 0:
+        # Flatten the array to handle both single and multiple results correctly
+        indices = np.array(indices).flatten()
     else:
-        return []  # Return an empty list if no indices
+        return []  # Return an empty list if no indices or indices are empty
 
     # Filter detections based on NMS indices
     filtered_detections = [detections[i] for i in indices]
@@ -109,7 +110,6 @@ def process_and_save_image():
     # Convert JPEG bytes to an OpenCV image
     image = cv2.imdecode(np.frombuffer(jpeg_bytes, np.uint8), cv2.IMREAD_COLOR)
     
-    # Assuming a preloaded model here; replace with actual model loading code
     model = MODEL_PATH  # Replace with your model
     
     # Detect objects in the image
@@ -125,4 +125,17 @@ def process_and_save_image():
     # Save the output image
     cv2.imwrite('detected.jpg', image)
 
-process_and_save_image()
+def process_image(image): 
+    model = MODEL_PATH  # Replace with your model
+    
+    # Detect objects in the image
+    detections = detect_objects(image, model)
+    filtered_detections = apply_nms(detections)
+    
+    # Draw bounding boxes on the image
+    for label, _, score, (x, y, w, h) in filtered_detections:
+        cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 1)
+        label_text = f"{label}: {score:.2f}"
+        cv2.putText(image, label_text, (int(x), int(y) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+    
+    return image

@@ -1,17 +1,7 @@
-from gpiozero import Servo
-from time import sleep
+import time
+from modules.camera import camera
 
-servo = Servo(21)
-
-print("Starting servo test")
-
-try:
-    while True:
-        servo.min()
-        sleep(0.5)
-        servo.mid()
-        sleep(0.5)
-        servo.max()
-        sleep(0.5)
-except KeyboardInterrupt:
-    print("Program stopped")
+camera.start()
+print("Camera working")
+time.sleep(5)
+camera.stop()
