@@ -1,37 +1,32 @@
 import time
+import socketio
 import cv2
-from flask import Flask, Response
+import base64
 from modules.camera import camera
-from modules.object_detection.tensorflow_handler import process_image
 
-app = Flask(__name__)
+sio = socketio.Client()
 
-def generate_frames():
+def send_frames():
     camera.start()
-
     try:
-        # Allow camera some time to adjust to conditions
-        time.sleep(2)
-        
-        # Continuously capture images
+        time.sleep(2)  # Allow camera some time to adjust
         while True:
             frame = camera.get_frame()
-            frame = process_image(frame)
-            _, buffer = cv2.imencode('.jpg', frame)  # Encode frame as JPEG
-
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
+            _, buffer = cv2.imencode('.jpg', frame)  # Compress frame to JPEG
+            frame_bytes = buffer.tobytes()  # Convert to bytes
+            sio.emit('send_frame', {'frame': base64.b64encode(frame_bytes).decode('utf-8')})  # Send as base64 encoded string
+            time.sleep(0.06)
     except KeyboardInterrupt:
         camera.stop()
     finally:
         camera.stop()
+        sio.disconnect()
 
-@app.route('/video_feed')
-def video_feed():
-    return Response(generate_frames(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+@sio.event
+def connect():
+    print("Connected to the server.")
+    send_frames()
 
-@app.route('/')
-def index():
-    # Return a simple webpage with the video stream embedded
-    return Response('<html><body><img src="/video_feed"></body></html>')
+@sio.event
+def disconnect():
+    print("Disconnected from server")
