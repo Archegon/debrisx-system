@@ -13,6 +13,7 @@ class PiCameraStream:
         self.condition = Condition()
 
     def start(self):
+        print("Camera started.")
         if not self.streaming:
             self.streaming = True
             self.camera.start()

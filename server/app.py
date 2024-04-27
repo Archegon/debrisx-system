@@ -7,26 +7,30 @@ from modules.camera import camera
 sio = socketio.Client()
 
 def send_frames():
+    frame_count = 0
+    print("Sending frames to server.")
     camera.start()
     try:
         time.sleep(2)  # Allow camera some time to adjust
         while True:
+            frame_count += 1
+            print(f"Sent Frame: {frame_count}")
             frame = camera.get_frame()
             _, buffer = cv2.imencode('.jpg', frame)  # Compress frame to JPEG
             frame_bytes = buffer.tobytes()  # Convert to bytes
-            sio.emit('send_frame', {'frame': base64.b64encode(frame_bytes).decode('utf-8')})  # Send as base64 encoded string
-            time.sleep(0.06)
+            sio.emit('send_frame', {'frame': base64.b64encode(frame_bytes).decode('utf-8')}, namespace='/debrisx')  # Send as base64 encoded string
+            time.sleep(0.07)
     except KeyboardInterrupt:
-        camera.stop()
+        print("Interrupted by user, stopping camera.")
     finally:
         camera.stop()
         sio.disconnect()
 
-@sio.event
+@sio.event(namespace='/debrisx')
 def connect():
-    print("Connected to the server.")
+    print("Connected to the server on namespace /debrisx.")
     send_frames()
 
-@sio.event
+@sio.event(namespace='/debrisx')
 def disconnect():
-    print("Disconnected from server")
+    print("Disconnected from server on namespace /debrisx")
