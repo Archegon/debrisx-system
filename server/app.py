@@ -19,7 +19,7 @@ def send_frames():
             _, buffer = cv2.imencode('.jpg', frame)  # Compress frame to JPEG
             frame_bytes = buffer.tobytes()  # Convert to bytes
             sio.emit('send_frame', {'frame': base64.b64encode(frame_bytes).decode('utf-8')}, namespace='/debrisx')  # Send as base64 encoded string
-            time.sleep(0.07)
+            time.sleep(0.1)
     except KeyboardInterrupt:
         print("Interrupted by user, stopping camera.")
     finally:
