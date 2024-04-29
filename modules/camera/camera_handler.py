@@ -25,6 +25,7 @@ class PiCameraStream:
             buffer = self.camera.capture_array()
             with self.condition:
                 self.frame = cv2.cvtColor(np.array(buffer), cv2.COLOR_BGR2RGB)
+                self.frame = cv2.flip(self.frame, 0)
                 self.condition.notify_all()
 
     def get_frame(self):
