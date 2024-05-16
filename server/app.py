@@ -1,61 +1,35 @@
-import time
-import cv2
-import base64
-import socketio
-import psutil
-from modules.camera import camera
+import io
+from threading import Condition
+from flask import Flask, Response, redirect, url_for
 
-sio = socketio.Client()
+app = Flask(__name__)
 
-connected_namespaces = {}
+class StreamingOutput(io.BufferedIOBase):
+    def __init__(self):
+        self.frame = None
+        self.condition = Condition()
 
-def send_frames():
-    print("Sending frames to server.")
-    camera.start()
-    time.sleep(2)
+    def write(self, buf):
+        with self.condition:
+            self.frame = buf
+            self.condition.notify_all()
 
-    try: 
+output = StreamingOutput()
+
+@app.route('/')
+def index():
+    return redirect(url_for('video_feed'))
+
+@app.route('/stream.mjpg')
+def video_feed():
+    def generate():
         while True:
-            frame = camera.get_frame()
-            _, buffer = cv2.imencode('.jpg', frame)  # Compress frame to JPEG
-            frame_bytes = buffer.tobytes()  # Convert to bytes
-            client_sendtime = time.time()
-
-            data = {
-                'frame': base64.b64encode(frame_bytes).decode('utf-8'),
-                'client_sendtime': client_sendtime
-            }
-            sio.emit('send_frame', data, namespace='/debrisx')  # Send as base64 encoded string
-    except KeyboardInterrupt:
-        print("Interrupted by user, stopping camera.")
-    finally:
-        camera.stop()
-        sio.disconnect()
-
-@sio.event(namespace='/debrisx')
-def connect():
-    print("Connected to the server on namespace /debrisx.")
-    connected_namespaces['/debrisx'] = True
-    sio.emit("start_latency_test", {'start_test': True}, namespace="/debrisx")
-    send_frames()
-
-@sio.event(namespace='/debrisx')
-def disconnect():
-    print("Disconnected from server on namespace /debrisx")
-
-@sio.event(namespace='/debrisx')
-def test_latency(data):
-    if connected_namespaces['/debrisx']:
-        print("Latency test received.")
-        sio.emit('latency_response', {
-            'server_time': data['server_time']
-        }, namespace='/debrisx')
-
-@sio.event(namespace='/debrisx')
-def frame_latency(data):
-    current_time = time.time()
-    latency = round((current_time - data['client_sendtime']) * 1000, 1)
-    cpu_usage = psutil.cpu_percent(interval=1)
-    memory = psutil.virtual_memory()
-    memory_usage = memory.percent
-    print(f"Frame Latency: {latency} ms | Cpu Usage: {cpu_usage}% | Memory Usage: {memory_usage}%")
+            with output.condition:
+                output.condition.wait()
+                frame = output.frame
+            yield (b'--FRAME\r\n'
+                   b'Content-Type: image/jpeg\r\n'
+                   b'Content-Length: ' + f'{len(frame)}'.encode() + b'\r\n'
+                   b'\r\n' + frame + b'\r\n')
+    return Response(generate(),
+                    mimetype='multipart/x-mixed-replace; boundary=FRAME')
