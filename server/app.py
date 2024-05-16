@@ -26,7 +26,6 @@ def send_frames():
                 'client_sendtime': client_sendtime
             }
             sio.emit('send_frame', data, namespace='/debrisx')  # Send as base64 encoded string
-            time.sleep(0.0834)
     except KeyboardInterrupt:
         print("Interrupted by user, stopping camera.")
     finally:

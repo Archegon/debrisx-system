@@ -8,9 +8,14 @@ def send_frames():
     print("Sending frames to server.")
     camera.start()
     time.sleep(2)  # Allow camera some time to adjust
+
     try: 
         while True:
             frame = camera.get_frame()
+            
+            if frame is None:
+                continue
+            
             _, buffer = cv2.imencode('.jpg', frame)  # Compress frame to JPEG
             frame_bytes = buffer.tobytes()  # Convert to bytes
 
@@ -18,7 +23,6 @@ def send_frames():
                 'frame': base64.b64encode(frame_bytes).decode('utf-8'),
             }
             sio.emit('send_frame', data, namespace='/debrisx')  # Send as base64 encoded string
-            time.sleep(0.0167)
     except KeyboardInterrupt:
         print("Interrupted by user, stopping camera.")
     finally:
