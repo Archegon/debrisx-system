@@ -1,5 +1,6 @@
 import io
 import threading
+import time
 from fastapi import APIRouter
 from picamera2 import Picamera2
 from picamera2.encoders import JpegEncoder
@@ -33,6 +34,8 @@ class PiCameraStream:
         self.camera = Picamera2()
         self.stop_stream = True
         self.configure_camera()
+        self.frame_count = 0
+        self.start_time = None
 
     def configure_camera(self):
         frame_duration = int((1 / self.fps) * 1000000)  # Convert to microseconds and cast to int
@@ -45,20 +48,39 @@ class PiCameraStream:
 
     def start(self):
         self.stop_stream = False
+        print("Streaming started")
+        self.start_time = time.time()
+        self.frame_count = 0
         self.camera.start_recording(JpegEncoder(), FileOutput(self.output))
 
     def stop(self):
         self.camera.stop_recording()
+        print("Streaming stopped")
         self.stop_stream = True
 
     def generate_frames(self):
-        while not self.stop_stream:
-            frame = self.output.get_frame()
+        try:
+            while not self.stop_stream:
+                frame = self.output.get_frame()
 
-            if frame is None:
-                continue
-            
-            yield (b'--FRAME\r\n'
-                   b'Content-Type: image/jpeg\r\n'
-                   b'Content-Length: ' + f'{len(frame)}'.encode() + b'\r\n'
-                   b'\r\n' + frame + b'\r\n')
+                if frame is None:
+                    continue
+
+                self.frame_count += 1
+                self.calculate_and_print_fps()
+
+                yield (b'--FRAME\r\n'
+                       b'Content-Type: image/jpeg\r\n'
+                       b'Content-Length: ' + f'{len(frame)}'.encode() + b'\r\n'
+                       b'\r\n' + frame + b'\r\n')
+        finally:
+            # Cleanup when the client disconnects
+            self.stop()
+
+    def calculate_and_print_fps(self):
+        elapsed_time = time.time() - self.start_time
+        if elapsed_time >= 1:
+            fps = self.frame_count / elapsed_time
+            print(f"FPS: {fps:.2f}")
+            self.frame_count = 0
+            self.start_time = time.time()
