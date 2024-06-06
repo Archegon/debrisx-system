@@ -7,7 +7,6 @@ def stop_stream(stream: PiCameraStream):
     stream.stop()
 
 @api_router.get('/stream.mjpg')
-async def video_feed(background_tasks: BackgroundTasks):
+async def video_feed():
     camera_stream.start()
-    background_tasks.add_task(stop_stream, camera_stream)
     return StreamingResponse(camera_stream.generate_frames(), media_type='multipart/x-mixed-replace; boundary=FRAME')

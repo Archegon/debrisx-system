@@ -47,16 +47,18 @@ class PiCameraStream:
         self.camera.configure(self.config)
 
     def start(self):
-        self.stop_stream = False
-        print("Streaming started")
-        self.start_time = time.time()
-        self.frame_count = 0
-        self.camera.start_recording(JpegEncoder(), FileOutput(self.output))
+        if self.stop_stream:
+            self.stop_stream = False
+            print("Streaming started")
+            self.start_time = time.time()
+            self.frame_count = 0
+            self.camera.start_recording(JpegEncoder(), FileOutput(self.output))
 
     def stop(self):
-        self.camera.stop_recording()
-        print("Streaming stopped")
-        self.stop_stream = True
+        if self.stop_stream:
+            self.camera.stop_recording()
+            print("Streaming stopped")
+            self.stop_stream = True
 
     def generate_frames(self):
         try:
