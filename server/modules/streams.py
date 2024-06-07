@@ -41,7 +41,7 @@ class PiCameraStream:
         frame_duration = int((1 / self.fps) * 1000000)  # Convert to microseconds and cast to int
         self.config = self.camera.create_video_configuration(
             main={"size": self.resolution},
-            transform=Transform(vflip=True, hflip=True),
+            transform=Transform(vflip=False, hflip=False),
             controls={"FrameDurationLimits": [frame_duration, frame_duration]}
         )
         self.camera.configure(self.config)
