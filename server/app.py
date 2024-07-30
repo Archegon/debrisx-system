@@ -1,6 +1,8 @@
+import asyncio
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .api import api_router
+from .websockets.connection import listen
+#from .api import api_router
 
 app = FastAPI()
 
@@ -13,4 +15,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(api_router, prefix="/api")
+# Define the startup event
+@app.on_event("startup")
+async def startup_event():
+    loop = asyncio.get_event_loop()
+    loop.create_task(listen())
+
+#app.include_router(api_router, prefix="/api")
