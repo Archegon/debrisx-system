@@ -77,6 +77,7 @@ class PiCameraStream:
                        b'\r\n' + frame + b'\r\n')
         finally:
             # Cleanup when the client disconnects
+            print("Stream Generator Exit")
             self.stop()
 
     def calculate_and_print_fps(self):
