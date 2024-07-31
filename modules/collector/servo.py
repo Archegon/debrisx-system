@@ -1,7 +1,12 @@
 import pigpio
-from time import sleep
+import asyncio
+from core.logger import Logger
 
-class ExtendedServo:
+class AngleOutOfRangeError(Exception):
+    """Exception raised when the angle is out of the allowed range."""
+    pass
+
+class ServoController:
     def __init__(self, pi, pin, min_pulse_width=500, max_pulse_width=2500):
         self.pi = pi
         self.pin = pin
@@ -9,28 +14,46 @@ class ExtendedServo:
         self.max_pulse_width = max_pulse_width
         self.range = max_pulse_width - min_pulse_width
         self.pi.set_mode(self.pin, pigpio.OUTPUT)
+        self.logger = Logger(self.__class__.__name__).get_logger()
 
-    def set_angle(self, angle):
+    async def set_angle(self, angle):
+        if angle < 0 or angle > 180:
+            self.logger.error(f"Angle {angle} is out of range. Must be between 0 and 180 degrees.")
+            raise AngleOutOfRangeError(f"Angle {angle} is out of range. Must be between 0 and 180 degrees.")
+        
         # Convert angle (0-180) to pulse width
         pulse_width = self.min_pulse_width + (angle / 180) * self.range
         self.pi.set_servo_pulsewidth(self.pin, pulse_width)
+        self.logger.info(f"Set angle to {angle} degrees (pulse width: {pulse_width} microseconds)")
 
-# Initialize pigpio and the extended servo with GPIO pin 25
-pi = pigpio.pi()
-servo = ExtendedServo(pi, 25)
+    async def sweep(self, start_angle=0, end_angle=180, delay=0.05):
+        try:
+            for angle in range(start_angle, end_angle + 1):  # Move from start to end angle
+                await self.set_angle(angle)
+                await asyncio.sleep(delay)
+            for angle in range(end_angle, start_angle - 1, -1):  # Move back from end to start angle
+                await self.set_angle(angle)
+                await asyncio.sleep(delay)
+        except asyncio.CancelledError:
+            pass
 
-print("Starting servo test")
+    async def cleanup(self):
+        self.pi.set_servo_pulsewidth(self.pin, 0)  # Turn off the servo
+        self.pi.stop()
+        self.logger.info("Cleaned up GPIO settings and stopped the servo.")
 
-try:
-    while True:
-        for angle in range(180, -1, -1):  # Move back from 180 to 0 degrees
-            servo.set_angle(angle)
-            sleep(0.05)  # Increase the delay to smooth the movement
-        for angle in range(0, 181, 1):  # Move from 0 to 180 degrees
-            servo.set_angle(angle)
-            sleep(0.05)  # Increase the delay to smooth the movement
-except KeyboardInterrupt:
-    print("Program stopped")
-finally:
-    servo.pi.set_servo_pulsewidth(servo.pin, 0)  # Turn off the servo
-    pi.stop()
+if __name__ == "__main__":
+    pi = pigpio.pi()
+    servo = ServoController(pi, 25)
+
+    print("Starting servo test")
+
+    try:
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(servo.sweep())
+    except KeyboardInterrupt:
+        print("Program stopped")
+    except AngleOutOfRangeError as e:
+        print(e)
+    finally:
+        loop.run_until_complete(servo.cleanup())
