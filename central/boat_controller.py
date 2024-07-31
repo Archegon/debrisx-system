@@ -1,9 +1,11 @@
 import asyncio
 import time
+import pigpio
 from core.logger import Logger
 from modules.adc.adc_controller import ADCController
 from modules.collector.servo import ServoController
 from modules.object_avoid.ultrasonic_sensor import UltrasonicSensor
+from modules.thruster import MotorController
 from modules.water_monitor.tds_sensor import TDSSensor
 from modules.water_monitor.turbidity_sensor import TurbiditySensor
 
@@ -11,20 +13,24 @@ class RCBoatController:
     def __init__(self):
         self.logger = Logger(self.__class__.__name__).get_logger()
         self.logger.info("Initializing RC Boat Controller")
+        self.pi = pigpio.pi()
 
         # Initialize components
-        self.servo_controller = ServoController(pi=None, pin=25)  # Replace `pi=None` with actual pigpio instance
-        self.ultrasonic_sensor = UltrasonicSensor(trigger_pin=27, echo_pin=17)
+        self.servo_controller = ServoController(pi=self.pi, pin=25)
+        self.ultrasonic_sensor_1 = UltrasonicSensor(trigger_pin=27, echo_pin=17)
+        self.ultrasonic_sensor_2 = UltrasonicSensor(trigger_pin=22, echo_pin=10)
         self.tds_sensor = TDSSensor(adc_channel=0)
         self.turbidity_sensor = TurbiditySensor(adc_channel=1)
+        self.motor_controller = MotorController()
 
     async def read_sensors(self):
         try:
-            distance = await self.ultrasonic_sensor.distance()
+            distance_1 = await self.ultrasonic_sensor_1.distance()
+            distance_2 = await self.ultrasonic_sensor_2.distance()
             tds = self.tds_sensor.read_tds()
             turbidity = self.turbidity_sensor.read_turbidity()
-            self.logger.info(f"Distance: {distance:.2f} cm, TDS: {tds:.2f} ppm, Turbidity: {turbidity:.2f} NTU")
-            return distance, tds, turbidity
+            self.logger.info(f"Distance_1: {distance_1:.2f} cm, Distance_2: {distance_2:.2f} cm, TDS: {tds:.2f} ppm, Turbidity: {turbidity:.2f} NTU")
+            return distance_1, distance_2, tds, turbidity
         except Exception as e:
             self.logger.error(f"Error reading sensors: {e}", exc_info=True)
             return None, None, None
