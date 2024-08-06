@@ -1,0 +1,134 @@
+2024-07-31 14:26:13,281 - BoatController - INFO - Initializing RC Boat Controller
+2024-07-31 14:26:13,431 - ADCController - INFO - Initializing ADC Controller
+2024-07-31 14:26:13,439 - TDSSensor - INFO - TDS Sensor initialized
+2024-07-31 14:26:13,445 - ADCController - INFO - Initializing ADC Controller
+2024-07-31 14:26:13,445 - ADCController - INFO - Initializing ADC Controller
+2024-07-31 14:26:13,456 - TurbiditySensor - INFO - Turbidity Sensor initialized
+2024-07-31 14:26:13,481 - server.websockets.connection - INFO - WS_URL env: 192.168.15.96:5000
+2024-07-31 14:26:15,730 - server.websockets.connection - INFO - Connecting to ws://192.168.15.96:5000/ws?client=raspberry
+2024-07-31 14:26:23,024 - server.websockets.connection - INFO - Connected to WebSocket
+2024-07-31 14:26:31,583 - server.websockets.connection - INFO - Received message: SERVO:117
+2024-07-31 14:26:31,637 - ServoController - INFO - Set angle to 117 degrees (pulse width: 1800.0 microseconds)
+2024-07-31 14:26:31,640 - server.websockets.connection - INFO - Set servo angle to 117
+2024-07-31 14:26:32,769 - server.websockets.connection - INFO - Received message: SERVO:153
+2024-07-31 14:26:32,822 - ServoController - INFO - Set angle to 153 degrees (pulse width: 2200.0 microseconds)
+2024-07-31 14:26:32,824 - server.websockets.connection - INFO - Set servo angle to 153
+2024-07-31 14:26:34,090 - server.websockets.connection - INFO - Received message: SERVO:56
+2024-07-31 14:26:34,143 - ServoController - INFO - Set angle to 56 degrees (pulse width: 1122.2222222222222 microseconds)
+2024-07-31 14:26:34,145 - server.websockets.connection - INFO - Set servo angle to 56
+2024-07-31 14:26:35,622 - server.websockets.connection - INFO - Received message: SERVO:152
+2024-07-31 14:26:35,675 - ServoController - INFO - Set angle to 152 degrees (pulse width: 2188.8888888888887 microseconds)
+2024-07-31 14:26:35,676 - server.websockets.connection - INFO - Set servo angle to 152
+2024-07-31 14:26:38,434 - server.websockets.connection - INFO - Received message: SERVO:151
+2024-07-31 14:26:38,488 - ServoController - INFO - Set angle to 151 degrees (pulse width: 2177.777777777778 microseconds)
+2024-07-31 14:26:38,489 - server.websockets.connection - INFO - Set servo angle to 151
+2024-07-31 14:26:40,893 - server.websockets.connection - INFO - Received message: SERVO:106
+2024-07-31 14:26:40,954 - ServoController - INFO - Set angle to 106 degrees (pulse width: 1677.7777777777778 microseconds)
+2024-07-31 14:26:40,956 - server.websockets.connection - INFO - Set servo angle to 106
+2024-07-31 14:26:42,205 - server.websockets.connection - INFO - Received message: SERVO:134
+2024-07-31 14:26:42,258 - ServoController - INFO - Set angle to 134 degrees (pulse width: 1988.888888888889 microseconds)
+2024-07-31 14:26:42,261 - server.websockets.connection - INFO - Set servo angle to 134
+2024-07-31 14:26:45,776 - server.websockets.connection - INFO - Received message: SERVO:82
+2024-07-31 14:26:45,830 - ServoController - INFO - Set angle to 82 degrees (pulse width: 1411.111111111111 microseconds)
+2024-07-31 14:26:45,833 - server.websockets.connection - INFO - Set servo angle to 82
+2024-07-31 14:26:49,046 - server.websockets.connection - INFO - Received message: SERVO:52
+2024-07-31 14:26:49,102 - ServoController - INFO - Set angle to 52 degrees (pulse width: 1077.7777777777778 microseconds)
+2024-07-31 14:26:49,104 - server.websockets.connection - INFO - Set servo angle to 52
+2024-07-31 14:26:50,818 - server.websockets.connection - INFO - Received message: SERVO:161
+2024-07-31 14:26:50,871 - ServoController - INFO - Set angle to 161 degrees (pulse width: 2288.8888888888887 microseconds)
+2024-07-31 14:26:50,872 - server.websockets.connection - INFO - Set servo angle to 161
+2024-07-31 14:26:54,199 - server.websockets.connection - INFO - Received message: SERVO:50
+2024-07-31 14:26:54,254 - ServoController - INFO - Set angle to 50 degrees (pulse width: 1055.5555555555557 microseconds)
+2024-07-31 14:26:54,255 - server.websockets.connection - INFO - Set servo angle to 50
+2024-07-31 14:26:55,661 - server.websockets.connection - INFO - Received message: FORWARD
+2024-07-31 14:26:56,665 - server.websockets.connection - INFO - Motor moving forward
+2024-07-31 14:26:56,678 - server.websockets.connection - INFO - Received message: STOP
+2024-07-31 14:26:56,684 - server.websockets.connection - INFO - Motor stopped
+2024-07-31 14:27:01,153 - server.websockets.connection - INFO - Received message: STOP
+2024-07-31 14:27:01,157 - server.websockets.connection - INFO - Motor stopped
+2024-07-31 14:27:13,859 - server.websockets.connection - INFO - Received message: SERVO:105
+2024-07-31 14:27:13,914 - ServoController - INFO - Set angle to 105 degrees (pulse width: 1666.6666666666667 microseconds)
+2024-07-31 14:27:13,916 - server.websockets.connection - INFO - Set servo angle to 105
+2024-07-31 14:27:26,082 - server.websockets.connection - INFO - Received message: SERVO:101
+2024-07-31 14:27:26,135 - ServoController - INFO - Set angle to 101 degrees (pulse width: 1622.2222222222222 microseconds)
+2024-07-31 14:27:26,137 - server.websockets.connection - INFO - Set servo angle to 101
+2024-07-31 14:27:29,113 - server.websockets.connection - INFO - Received message: SERVO:9
+2024-07-31 14:27:29,167 - ServoController - INFO - Set angle to 9 degrees (pulse width: 600.0 microseconds)
+2024-07-31 14:27:29,169 - server.websockets.connection - INFO - Set servo angle to 9
+2024-07-31 14:27:30,909 - server.websockets.connection - INFO - Received message: SERVO:139
+2024-07-31 14:27:30,968 - ServoController - INFO - Set angle to 139 degrees (pulse width: 2044.4444444444446 microseconds)
+2024-07-31 14:27:30,969 - server.websockets.connection - INFO - Set servo angle to 139
+2024-07-31 14:27:32,042 - server.websockets.connection - INFO - Received message: SERVO:171
+2024-07-31 14:27:32,098 - ServoController - INFO - Set angle to 171 degrees (pulse width: 2400.0 microseconds)
+2024-07-31 14:27:32,099 - server.websockets.connection - INFO - Set servo angle to 171
+2024-07-31 14:28:02,437 - server.websockets.connection - INFO - Received message: FORWARD
+2024-07-31 14:28:03,443 - server.websockets.connection - INFO - Motor moving forward
+2024-07-31 14:28:04,288 - server.websockets.connection - INFO - Received message: STOP
+2024-07-31 14:28:04,290 - server.websockets.connection - INFO - Motor stopped
+2024-07-31 14:28:17,487 - server.websockets.connection - INFO - Received message: SERVO:82
+2024-07-31 14:28:17,540 - ServoController - INFO - Set angle to 82 degrees (pulse width: 1411.111111111111 microseconds)
+2024-07-31 14:28:17,542 - server.websockets.connection - INFO - Set servo angle to 82
+2024-07-31 14:28:18,918 - server.websockets.connection - INFO - Received message: SERVO:149
+2024-07-31 14:28:18,973 - ServoController - INFO - Set angle to 149 degrees (pulse width: 2155.5555555555557 microseconds)
+2024-07-31 14:28:18,976 - server.websockets.connection - INFO - Set servo angle to 149
+2024-07-31 14:28:20,852 - server.websockets.connection - INFO - Received message: SERVO:62
+2024-07-31 14:28:20,905 - ServoController - INFO - Set angle to 62 degrees (pulse width: 1188.888888888889 microseconds)
+2024-07-31 14:28:20,907 - server.websockets.connection - INFO - Set servo angle to 62
+2024-07-31 14:28:22,849 - server.websockets.connection - INFO - Received message: SERVO:131
+2024-07-31 14:28:22,902 - ServoController - INFO - Set angle to 131 degrees (pulse width: 1955.5555555555554 microseconds)
+2024-07-31 14:28:22,904 - server.websockets.connection - INFO - Set servo angle to 131
+2024-07-31 14:28:24,692 - server.websockets.connection - INFO - Received message: SERVO:24
+2024-07-31 14:28:24,746 - ServoController - INFO - Set angle to 24 degrees (pulse width: 766.6666666666667 microseconds)
+2024-07-31 14:28:24,747 - server.websockets.connection - INFO - Set servo angle to 24
+2024-07-31 14:28:31,834 - server.websockets.connection - INFO - Received message: SERVO:155
+2024-07-31 14:28:31,887 - ServoController - INFO - Set angle to 155 degrees (pulse width: 2222.2222222222226 microseconds)
+2024-07-31 14:28:31,888 - server.websockets.connection - INFO - Set servo angle to 155
+2024-07-31 14:34:26,470 - server.websockets.connection - INFO - Received message: SERVO:120
+2024-07-31 14:34:26,523 - ServoController - INFO - Set angle to 120 degrees (pulse width: 1833.3333333333333 microseconds)
+2024-07-31 14:34:26,524 - server.websockets.connection - INFO - Set servo angle to 120
+2024-07-31 14:34:28,657 - server.websockets.connection - INFO - Received message: SERVO:68
+2024-07-31 14:34:28,712 - ServoController - INFO - Set angle to 68 degrees (pulse width: 1255.5555555555557 microseconds)
+2024-07-31 14:34:28,715 - server.websockets.connection - INFO - Set servo angle to 68
+2024-07-31 14:34:30,067 - server.websockets.connection - INFO - Received message: FORWARD
+2024-07-31 14:34:31,074 - server.websockets.connection - INFO - Motor moving forward
+2024-07-31 14:34:31,678 - server.websockets.connection - INFO - Received message: BACKWARD
+2024-07-31 14:34:32,684 - server.websockets.connection - INFO - Motor moving backward
+2024-07-31 14:34:33,056 - server.websockets.connection - INFO - Received message: LEFT
+2024-07-31 14:34:34,060 - server.websockets.connection - INFO - Motor turning left
+2024-07-31 14:34:34,082 - server.websockets.connection - INFO - Received message: RIGHT
+2024-07-31 14:34:35,087 - server.websockets.connection - INFO - Motor turning right
+2024-07-31 14:34:38,288 - server.websockets.connection - INFO - Received message: FORWARD
+2024-07-31 14:34:39,294 - server.websockets.connection - INFO - Motor moving forward
+2024-07-31 14:34:39,996 - server.websockets.connection - INFO - Received message: RIGHT
+2024-07-31 14:34:41,000 - server.websockets.connection - INFO - Motor turning right
+2024-07-31 14:34:41,952 - server.websockets.connection - INFO - Received message: LEFT
+2024-07-31 14:34:42,956 - server.websockets.connection - INFO - Motor turning left
+2024-07-31 14:34:43,439 - server.websockets.connection - INFO - Received message: SERVO:135
+2024-07-31 14:34:43,491 - ServoController - INFO - Set angle to 135 degrees (pulse width: 2000.0 microseconds)
+2024-07-31 14:34:43,492 - server.websockets.connection - INFO - Set servo angle to 135
+2024-07-31 14:34:44,732 - server.websockets.connection - INFO - Received message: SERVO:160
+2024-07-31 14:34:44,786 - ServoController - INFO - Set angle to 160 degrees (pulse width: 2277.7777777777774 microseconds)
+2024-07-31 14:34:44,788 - server.websockets.connection - INFO - Set servo angle to 160
+2024-07-31 14:34:55,351 - server.websockets.connection - INFO - Received message: FORWARD
+2024-07-31 14:34:56,355 - server.websockets.connection - INFO - Motor moving forward
+2024-07-31 14:35:02,736 - server.websockets.connection - INFO - Received message: BACKWARD
+2024-07-31 14:35:03,742 - server.websockets.connection - INFO - Motor moving backward
+2024-07-31 14:35:47,474 - server.websockets.connection - INFO - Received message: SERVO:74
+2024-07-31 14:35:47,528 - ServoController - INFO - Set angle to 74 degrees (pulse width: 1322.2222222222222 microseconds)
+2024-07-31 14:35:47,530 - server.websockets.connection - INFO - Set servo angle to 74
+2024-07-31 14:35:50,248 - server.websockets.connection - INFO - Received message: SERVO:179
+2024-07-31 14:35:50,305 - ServoController - INFO - Set angle to 179 degrees (pulse width: 2488.8888888888887 microseconds)
+2024-07-31 14:35:50,307 - server.websockets.connection - INFO - Set servo angle to 179
+2024-07-31 14:36:43,707 - server.websockets.connection - INFO - Received message: SERVO:139
+2024-07-31 14:36:43,760 - ServoController - INFO - Set angle to 139 degrees (pulse width: 2044.4444444444446 microseconds)
+2024-07-31 14:36:43,761 - server.websockets.connection - INFO - Set servo angle to 139
+2024-07-31 14:36:45,681 - server.websockets.connection - INFO - Received message: SERVO:49
+2024-07-31 14:36:45,734 - ServoController - INFO - Set angle to 49 degrees (pulse width: 1044.4444444444443 microseconds)
+2024-07-31 14:36:45,736 - server.websockets.connection - INFO - Set servo angle to 49
+2024-07-31 14:36:47,422 - server.websockets.connection - INFO - Received message: FORWARD
+2024-07-31 14:36:48,427 - server.websockets.connection - INFO - Motor moving forward
+2024-07-31 14:36:49,227 - server.websockets.connection - INFO - Received message: STOP
+2024-07-31 14:36:49,229 - server.websockets.connection - INFO - Motor stopped
+2024-07-31 14:36:53,544 - server.websockets.connection - INFO - Received message: SERVO:167
+2024-07-31 14:36:53,600 - ServoController - INFO - Set angle to 167 degrees (pulse width: 2355.5555555555557 microseconds)
+2024-07-31 14:36:53,603 - server.websockets.connection - INFO - Set servo angle to 167

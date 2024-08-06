@@ -1,0 +1,130 @@
+2024-07-31 14:28:14,667 - BoatController - INFO - Initializing RC Boat Controller
+2024-07-31 14:28:14,809 - ADCController - INFO - Initializing ADC Controller
+2024-07-31 14:28:14,819 - TDSSensor - INFO - TDS Sensor initialized
+2024-07-31 14:28:14,824 - ADCController - INFO - Initializing ADC Controller
+2024-07-31 14:28:14,824 - ADCController - INFO - Initializing ADC Controller
+2024-07-31 14:28:14,832 - TurbiditySensor - INFO - Turbidity Sensor initialized
+2024-07-31 14:28:14,859 - server.websockets.connection - INFO - WS_URL env: 192.168.15.96:5000
+2024-07-31 14:28:17,216 - server.websockets.connection - INFO - Connecting to ws://192.168.15.96:5000/ws?client=raspberry
+2024-07-31 14:28:17,276 - server.websockets.connection - INFO - Connected to WebSocket
+2024-07-31 14:28:17,283 - ADCController - DEBUG - Channel 0 raw value: -12830, voltage: -1.604 V
+2024-07-31 14:28:17,283 - ADCController - DEBUG - Channel 0 raw value: -12830, voltage: -1.604 V
+2024-07-31 14:28:17,288 - TDSSensor - DEBUG - Voltage: -1.604 V, TDS: -801.90 ppm
+2024-07-31 14:28:17,294 - ADCController - DEBUG - Channel 1 raw value: -12908, voltage: -1.614 V
+2024-07-31 14:28:17,294 - ADCController - DEBUG - Channel 1 raw value: -12908, voltage: -1.614 V
+2024-07-31 14:28:17,297 - TurbiditySensor - DEBUG - Voltage: -1.614 V, Turbidity: -8.07 NTU
+2024-07-31 14:28:17,299 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    sensor_data_json = json.dumps(sensor_data)
+NameError: name 'json' is not defined
+2024-07-31 14:28:19,307 - ADCController - DEBUG - Channel 0 raw value: 13080, voltage: 1.635 V
+2024-07-31 14:28:19,307 - ADCController - DEBUG - Channel 0 raw value: 13080, voltage: 1.635 V
+2024-07-31 14:28:19,309 - TDSSensor - DEBUG - Voltage: 1.635 V, TDS: 817.52 ppm
+2024-07-31 14:28:19,315 - ADCController - DEBUG - Channel 1 raw value: 13080, voltage: 1.635 V
+2024-07-31 14:28:19,315 - ADCController - DEBUG - Channel 1 raw value: 13080, voltage: 1.635 V
+2024-07-31 14:28:19,319 - TurbiditySensor - DEBUG - Voltage: 1.635 V, Turbidity: 8.18 NTU
+2024-07-31 14:28:19,322 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    sensor_data_json = json.dumps(sensor_data)
+NameError: name 'json' is not defined
+2024-07-31 14:28:21,329 - ADCController - DEBUG - Channel 0 raw value: 13284, voltage: 1.661 V
+2024-07-31 14:28:21,329 - ADCController - DEBUG - Channel 0 raw value: 13284, voltage: 1.661 V
+2024-07-31 14:28:21,331 - TDSSensor - DEBUG - Voltage: 1.661 V, TDS: 830.28 ppm
+2024-07-31 14:28:21,336 - ADCController - DEBUG - Channel 1 raw value: 13284, voltage: 1.661 V
+2024-07-31 14:28:21,336 - ADCController - DEBUG - Channel 1 raw value: 13284, voltage: 1.661 V
+2024-07-31 14:28:21,338 - TurbiditySensor - DEBUG - Voltage: 1.661 V, Turbidity: 8.30 NTU
+2024-07-31 14:28:21,340 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    sensor_data_json = json.dumps(sensor_data)
+NameError: name 'json' is not defined
+2024-07-31 14:28:23,346 - ADCController - DEBUG - Channel 0 raw value: 13299, voltage: 1.662 V
+2024-07-31 14:28:23,346 - ADCController - DEBUG - Channel 0 raw value: 13299, voltage: 1.662 V
+2024-07-31 14:28:23,348 - TDSSensor - DEBUG - Voltage: 1.662 V, TDS: 831.21 ppm
+2024-07-31 14:28:23,352 - ADCController - DEBUG - Channel 1 raw value: 13027, voltage: 1.628 V
+2024-07-31 14:28:23,352 - ADCController - DEBUG - Channel 1 raw value: 13027, voltage: 1.628 V
+2024-07-31 14:28:23,355 - TurbiditySensor - DEBUG - Voltage: 1.628 V, Turbidity: 8.14 NTU
+2024-07-31 14:28:23,357 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    sensor_data_json = json.dumps(sensor_data)
+NameError: name 'json' is not defined
+2024-07-31 14:28:25,366 - ADCController - DEBUG - Channel 0 raw value: 13001, voltage: 1.625 V
+2024-07-31 14:28:25,366 - ADCController - DEBUG - Channel 0 raw value: 13001, voltage: 1.625 V
+2024-07-31 14:28:25,370 - TDSSensor - DEBUG - Voltage: 1.625 V, TDS: 812.59 ppm
+2024-07-31 14:28:25,378 - ADCController - DEBUG - Channel 1 raw value: 12659, voltage: 1.582 V
+2024-07-31 14:28:25,378 - ADCController - DEBUG - Channel 1 raw value: 12659, voltage: 1.582 V
+2024-07-31 14:28:25,381 - TurbiditySensor - DEBUG - Voltage: 1.582 V, Turbidity: 7.91 NTU
+2024-07-31 14:28:25,386 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    sensor_data_json = json.dumps(sensor_data)
+NameError: name 'json' is not defined
+2024-07-31 14:28:27,393 - ADCController - DEBUG - Channel 0 raw value: 13300, voltage: 1.663 V
+2024-07-31 14:28:27,393 - ADCController - DEBUG - Channel 0 raw value: 13300, voltage: 1.663 V
+2024-07-31 14:28:27,395 - TDSSensor - DEBUG - Voltage: 1.663 V, TDS: 831.28 ppm
+2024-07-31 14:28:27,398 - ADCController - DEBUG - Channel 1 raw value: 13300, voltage: 1.663 V
+2024-07-31 14:28:27,398 - ADCController - DEBUG - Channel 1 raw value: 13300, voltage: 1.663 V
+2024-07-31 14:28:27,400 - TurbiditySensor - DEBUG - Voltage: 1.663 V, Turbidity: 8.31 NTU
+2024-07-31 14:28:27,401 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    sensor_data_json = json.dumps(sensor_data)
+NameError: name 'json' is not defined
+2024-07-31 14:28:29,409 - ADCController - DEBUG - Channel 0 raw value: 13506, voltage: 1.688 V
+2024-07-31 14:28:29,409 - ADCController - DEBUG - Channel 0 raw value: 13506, voltage: 1.688 V
+2024-07-31 14:28:29,410 - TDSSensor - DEBUG - Voltage: 1.688 V, TDS: 844.15 ppm
+2024-07-31 14:28:29,414 - ADCController - DEBUG - Channel 1 raw value: 13202, voltage: 1.650 V
+2024-07-31 14:28:29,414 - ADCController - DEBUG - Channel 1 raw value: 13202, voltage: 1.650 V
+2024-07-31 14:28:29,418 - TurbiditySensor - DEBUG - Voltage: 1.650 V, Turbidity: 8.25 NTU
+2024-07-31 14:28:29,419 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    sensor_data_json = json.dumps(sensor_data)
+NameError: name 'json' is not defined
+2024-07-31 14:28:31,430 - ADCController - DEBUG - Channel 0 raw value: 13487, voltage: 1.686 V
+2024-07-31 14:28:31,430 - ADCController - DEBUG - Channel 0 raw value: 13487, voltage: 1.686 V
+2024-07-31 14:28:31,432 - TDSSensor - DEBUG - Voltage: 1.686 V, TDS: 842.96 ppm
+2024-07-31 14:28:31,436 - ADCController - DEBUG - Channel 1 raw value: 13194, voltage: 1.649 V
+2024-07-31 14:28:31,436 - ADCController - DEBUG - Channel 1 raw value: 13194, voltage: 1.649 V
+2024-07-31 14:28:31,439 - TurbiditySensor - DEBUG - Voltage: 1.649 V, Turbidity: 8.25 NTU
+2024-07-31 14:28:31,441 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    }
+NameError: name 'json' is not defined
+2024-07-31 14:28:33,448 - ADCController - DEBUG - Channel 0 raw value: 13567, voltage: 1.696 V
+2024-07-31 14:28:33,448 - ADCController - DEBUG - Channel 0 raw value: 13567, voltage: 1.696 V
+2024-07-31 14:28:33,450 - TDSSensor - DEBUG - Voltage: 1.696 V, TDS: 847.96 ppm
+2024-07-31 14:28:33,454 - ADCController - DEBUG - Channel 1 raw value: 13567, voltage: 1.696 V
+2024-07-31 14:28:33,454 - ADCController - DEBUG - Channel 1 raw value: 13567, voltage: 1.696 V
+2024-07-31 14:28:33,458 - TurbiditySensor - DEBUG - Voltage: 1.696 V, Turbidity: 8.48 NTU
+2024-07-31 14:28:33,460 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    }
+NameError: name 'json' is not defined
+2024-07-31 14:28:35,467 - ADCController - DEBUG - Channel 0 raw value: 13440, voltage: 1.680 V
+2024-07-31 14:28:35,467 - ADCController - DEBUG - Channel 0 raw value: 13440, voltage: 1.680 V
+2024-07-31 14:28:35,476 - TDSSensor - DEBUG - Voltage: 1.680 V, TDS: 840.03 ppm
+2024-07-31 14:28:35,479 - ADCController - DEBUG - Channel 1 raw value: 45, voltage: 0.006 V
+2024-07-31 14:28:35,479 - ADCController - DEBUG - Channel 1 raw value: 45, voltage: 0.006 V
+2024-07-31 14:28:35,481 - TurbiditySensor - DEBUG - Voltage: 0.006 V, Turbidity: 0.03 NTU
+2024-07-31 14:28:35,484 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    }
+NameError: name 'json' is not defined
+2024-07-31 14:28:37,491 - ADCController - DEBUG - Channel 0 raw value: 13263, voltage: 1.658 V
+2024-07-31 14:28:37,491 - ADCController - DEBUG - Channel 0 raw value: 13263, voltage: 1.658 V
+2024-07-31 14:28:37,494 - TDSSensor - DEBUG - Voltage: 1.658 V, TDS: 828.96 ppm
+2024-07-31 14:28:37,498 - ADCController - DEBUG - Channel 1 raw value: 12845, voltage: 1.606 V
+2024-07-31 14:28:37,498 - ADCController - DEBUG - Channel 1 raw value: 12845, voltage: 1.606 V
+2024-07-31 14:28:37,501 - TurbiditySensor - DEBUG - Voltage: 1.606 V, Turbidity: 8.03 NTU
+2024-07-31 14:28:37,503 - BoatController - ERROR - Error reading sensors: name 'json' is not defined
+Traceback (most recent call last):
+  File "/home/debrisx/debrisx-system/central/boat_controller.py", line 37, in read_sensors
+    }
+NameError: name 'json' is not defined
