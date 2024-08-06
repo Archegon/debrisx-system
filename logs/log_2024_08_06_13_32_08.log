@@ -1,0 +1,7 @@
+2024-08-06 13:32:08,796 - BoatController - INFO - Initializing RC Boat Controller
+2024-08-06 13:32:08,893 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 13:32:08,897 - TDSSensor - INFO - TDS Sensor initialized
+2024-08-06 13:32:08,901 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 13:32:08,901 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 13:32:08,905 - TurbiditySensor - INFO - Turbidity Sensor initialized
+2024-08-06 13:32:08,922 - server.websockets.connection - INFO - BACKEND_IP env: 192.168.215.96:5000

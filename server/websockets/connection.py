@@ -9,11 +9,11 @@ from modules.collector.servo import ServoController
 logger = Logger(__name__).get_logger()
 
 # Load WebSocket URL from environment variable
-WS_URL = os.getenv('WS_URL')
-logger.info(f"WS_URL env: {WS_URL}")
+BACKEND_IP = os.getenv('BACKEND_IP')
+logger.info(f"BACKEND_IP env: {BACKEND_IP}")
 
 if not WS_URL:
-    raise EnvironmentError("WS_URL environment variable not set")
+    raise EnvironmentError("BACKEND_IP environment variable not set")
 
 # Variable to track the last servo command time
 last_servo_command_time = 0
@@ -21,7 +21,7 @@ SERVO_COMMAND_LIMIT = 1  # Limit servo commands to once per second
 
 async def listen():
     global last_servo_command_time
-    url = f"ws://{WS_URL}/ws?client=raspberry"
+    url = f"ws://{BACKEND_IP}/ws?client=raspberry"
     motor_controller = boat.motor_controller
     servo_controller = boat.servo_controller
 
