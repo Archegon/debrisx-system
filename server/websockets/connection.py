@@ -12,7 +12,7 @@ logger = Logger(__name__).get_logger()
 BACKEND_IP = os.getenv('BACKEND_IP')
 logger.info(f"BACKEND_IP env: {BACKEND_IP}")
 
-if not WS_URL:
+if not BACKEND_IP:
     raise EnvironmentError("BACKEND_IP environment variable not set")
 
 # Variable to track the last servo command time
