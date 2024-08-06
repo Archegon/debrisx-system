@@ -1,6 +1,6 @@
 import asyncio
 import time
-from adc.adc_controller import ADCController
+from modules.adc.adc_controller import ADCController
 from core.logger import Logger
 
 class TurbiditySensor:

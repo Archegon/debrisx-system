@@ -1,61 +1,41 @@
-import RPi.GPIO as GPIO
+from gpiozero import DistanceSensor
 import asyncio
-import time
+from signal import pause
 
 class UltrasonicSensor:
-    def __init__(self, trigger_pin, echo_pin):
-        self.trigger_pin = trigger_pin
-        self.echo_pin = echo_pin
-
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.trigger_pin, GPIO.OUT)
-        GPIO.setup(self.echo_pin, GPIO.IN)
+    def __init__(self, trigger_pin, echo_pin, max_distance=4):
+        self.sensor = DistanceSensor(echo=echo_pin, trigger=trigger_pin, max_distance=max_distance)
+        print(f"Ultrasonic sensor initialized on trigger pin {trigger_pin} and echo pin {echo_pin}")
 
     async def distance(self):
-        # set Trigger to HIGH
-        GPIO.output(self.trigger_pin, True)
- 
-        # set Trigger after 0.01ms to LOW
-        await asyncio.sleep(0.00001)
-        GPIO.output(self.trigger_pin, False)
- 
-        StartTime = time.time()
-        StopTime = time.time()
- 
-        # save StartTime
-        while GPIO.input(self.echo_pin) == 0:
-            StartTime = time.time()
- 
-        # save time of arrival
-        while GPIO.input(self.echo_pin) == 1:
-            StopTime = time.time()
- 
-        # time difference between start and arrival
-        TimeElapsed = StopTime - StartTime
-        # multiply with the sonic speed (34300 cm/s)
-        # and divide by 2, because there and back
-        distance = (TimeElapsed * 34300) / 2
- 
+        distance = self.sensor.distance * 100  # convert to cm
+        print(f"Distance measured: {distance:.1f} cm")
         return distance
 
-    async def cleanup(self):
-        GPIO.cleanup()
-
-    async def measure_continuously(self, interval=1):
+    async def measure_continuously(self, interval=1, label=None):
         try:
             while True:
+                print(f"Starting distance measurement for {label}")
                 dist = await self.distance()
-                print(f"Measured Distance = {dist:.1f} cm")
+
+                label_text = f"{label}: " if label else ""
+                print(f"{label_text}Measured Distance = {dist:.1f} cm")
                 await asyncio.sleep(interval)
         except asyncio.CancelledError:
             pass
 
 if __name__ == '__main__':
     try:
-        sensor = UltrasonicSensor(trigger_pin=27, echo_pin=17)
+        sensor1 = UltrasonicSensor(trigger_pin=27, echo_pin=17)
+        sensor2 = UltrasonicSensor(trigger_pin=22, echo_pin=10)
+
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(sensor.measure_continuously())
+        tasks = [
+            sensor1.measure_continuously(label="Sensor 1"),
+            sensor2.measure_continuously(label="Sensor 2")
+        ]
+        print("Starting asyncio loop")
+
+        loop.run_until_complete(asyncio.gather(*tasks))
     except KeyboardInterrupt:
         print("Measurement stopped by User")
-    finally:
-        loop.run_until_complete(sensor.cleanup())

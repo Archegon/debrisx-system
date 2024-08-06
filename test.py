@@ -1,11 +1,19 @@
-from core.logger import Logger
+import asyncio
+from modules.collector.servo import ServoController
 
-# Create a logger instance
-logger = Logger(__name__).get_logger()
+async def main():
+    servo = ServoController(25)
+    print("Starting servo test")
 
-# Log some messages
-logger.debug("This is a debug message")
-logger.info("This is an info message")
-logger.warning("This is a warning message")
-logger.error("This is an error message")
-logger.critical("This is a critical message")
+    try:
+        await servo.set_angle(100)
+        await asyncio.sleep(1)
+    except KeyboardInterrupt:
+        print("Program stopped")
+    except AngleOutOfRangeError as e:
+        print(e)
+    finally:
+        await servo.cleanup()
+
+if __name__ == "__main__":
+    asyncio.run(main())

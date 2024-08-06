@@ -7,8 +7,8 @@ class AngleOutOfRangeError(Exception):
     pass
 
 class ServoController:
-    def __init__(self, pi, pin, min_pulse_width=500, max_pulse_width=2500):
-        self.pi = pi
+    def __init__(self, pin, min_pulse_width=500, max_pulse_width=2500):
+        self.pi = pigpio.pi()
         self.pin = pin
         self.min_pulse_width = min_pulse_width
         self.max_pulse_width = max_pulse_width
@@ -24,6 +24,7 @@ class ServoController:
         # Convert angle (0-180) to pulse width
         pulse_width = self.min_pulse_width + (angle / 180) * self.range
         self.pi.set_servo_pulsewidth(self.pin, pulse_width)
+        await asyncio.sleep(0.1)
         self.logger.info(f"Set angle to {angle} degrees (pulse width: {pulse_width} microseconds)")
 
     async def sweep(self, start_angle=0, end_angle=180, delay=0.05):
@@ -43,8 +44,7 @@ class ServoController:
         self.logger.info("Cleaned up GPIO settings and stopped the servo.")
 
 if __name__ == "__main__":
-    pi = pigpio.pi()
-    servo = ServoController(pi, 25)
+    servo = ServoController(25)
 
     print("Starting servo test")
 

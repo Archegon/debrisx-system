@@ -2,8 +2,8 @@ import asyncio
 import os
 import websockets
 from core.logger import Logger
-from central import RCBoatController
-import pigpio
+from central import boat
+from modules.collector.servo import ServoController
 
 # Initialize Logger
 logger = Logger(__name__).get_logger()
@@ -15,21 +15,27 @@ logger.info(f"WS_URL env: {WS_URL}")
 if not WS_URL:
     raise EnvironmentError("WS_URL environment variable not set")
 
+# Variable to track the last servo command time
+last_servo_command_time = 0
+SERVO_COMMAND_LIMIT = 1  # Limit servo commands to once per second
+
 async def listen():
+    global last_servo_command_time
     url = f"ws://{WS_URL}/ws?client=raspberry"
-    pi = pigpio.pi()
-    motor_controller = RCBoatController.motor_controller
+    motor_controller = boat.motor_controller
+    servo_controller = boat.servo_controller
 
     while True:
         try:
             logger.info(f"Connecting to {url}")
             async with websockets.connect(url) as websocket:
                 logger.info("Connected to WebSocket")
+                sensor_task = asyncio.create_task(send_sensor_data(websocket, boat))
                 while True:
                     try:
                         message = await websocket.recv()
                         logger.info(f"Received message: {message}")
-                        handle_message(message, motor_controller)
+                        await handle_message(message, motor_controller, servo_controller)
                     except websockets.exceptions.ConnectionClosed as e:
                         logger.error(f"Connection closed with error: {e}")
                         break
@@ -42,22 +48,38 @@ async def listen():
         logger.info("Retrying connection in 5 seconds...")
         await asyncio.sleep(5)  # Delay before retrying
 
-def handle_message(message, motor_controller):
-    if message == "forward":
-        motor_controller.move_forward()
+async def handle_message(message, motor_controller, servo_controller):
+    global last_servo_command_time
+    current_time = asyncio.get_event_loop().time()
+    
+    if message == "FORWARD":
+        motor_controller.forward()
         logger.info("Motor moving forward")
-    elif message == "backward":
-        motor_controller.move_backward()
+    elif message == "BACKWARD":
+        motor_controller.backward()
         logger.info("Motor moving backward")
-    elif message == "left":
+    elif message == "LEFT":
         motor_controller.turn_left()
         logger.info("Motor turning left")
-    elif message == "right":
+    elif message == "RIGHT":
         motor_controller.turn_right()
         logger.info("Motor turning right")
-    elif message == "stop":
+    elif message == "STOP":
         motor_controller.stop()
         logger.info("Motor stopped")
+    elif message.startswith("SERVO:"):
+        if current_time - last_servo_command_time >= SERVO_COMMAND_LIMIT:
+            try:
+                angle = int(message.split(":")[1])
+                await servo_controller.set_angle(angle)
+                logger.info(f"Set servo angle to {angle}")
+                last_servo_command_time = current_time
+            except ValueError:
+                logger.error(f"Invalid servo angle: {message}")
+            except AngleOutOfRangeError as e:
+                logger.error(f"Servo angle out of range: {e}")
+        else:
+            logger.info(f"Servo command rate limited. Command ignored: {message}")
     else:
         logger.warning(f"Unknown command: {message}")
 
@@ -68,3 +90,15 @@ if __name__ == "__main__":
         logger.info("Program stopped by User")
     except Exception as e:
         logger.error(f"Unexpected error: {e}", exc_info=True)
+
+async def send_sensor_data(websocket, boat_controller):
+    while True:
+        try:
+            sensor_data_json = await boat_controller.read_sensors()
+            if sensor_data_json:
+                await websocket.send(f"SENSOR_DATA:{sensor_data_json}")
+                logger.info(f"Sent sensor data: {sensor_data_json}")
+            await asyncio.sleep(2)  # Send data every 2 seconds
+        except Exception as e:
+            logger.error(f"Error sending sensor data: {e}")
+            break
