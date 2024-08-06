@@ -1,0 +1,9 @@
+2024-08-06 14:19:45,657 - BoatController - INFO - Initializing RC Boat Controller
+2024-08-06 14:19:45,700 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 14:19:45,725 - TDSSensor - INFO - TDS Sensor initialized
+2024-08-06 14:19:45,727 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 14:19:45,727 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 14:19:45,733 - TurbiditySensor - INFO - Turbidity Sensor initialized
+2024-08-06 14:19:45,746 - server.websockets.connection - INFO - BACKEND_IP env: 192.168.215.96:5000
+2024-08-06 14:19:46,864 - server.websockets.connection - INFO - Connecting to ws://192.168.215.96:5000/ws?client=raspberry
+2024-08-06 14:19:46,913 - server.websockets.connection - INFO - Connected to WebSocket

@@ -1,19 +1,45 @@
-import asyncio
-from modules.collector.servo import ServoController
+"""
+FILE    : ADS_read.py
+AUTHOR  : Chandra.Wijaya
+VERSION : 1.2.0
+PURPOSE : read analog input
 
-async def main():
-    servo = ServoController(25)
-    print("Starting servo test")
+test
+connect 1 potmeter 
 
-    try:
-        await servo.set_angle(100)
-        await asyncio.sleep(1)
-    except KeyboardInterrupt:
-        print("Program stopped")
-    except AngleOutOfRangeError as e:
-        print(e)
-    finally:
-        await servo.cleanup()
+GND ---[   x   ]------ 3.3V
+           |
 
-if __name__ == "__main__":
-    asyncio.run(main())
+measure at x (connect to AIN0).
+"""
+
+import os
+import time
+import ADS1x15
+
+# choose your sensor
+# ADS = ADS1x15.ADS1013(1, 0x48)
+# ADS = ADS1x15.ADS1014(1, 0x48)
+# ADS = ADS1x15.ADS1015(1, 0x48)
+# ADS = ADS1x15.ADS1113(1, 0x48)
+# ADS = ADS1x15.ADS1114(1, 0x48)
+
+ADS = ADS1x15.ADS1115(1, 0x48)
+
+print(os.path.basename(__file__))
+print("ADS1X15_LIB_VERSION: {}".format(ADS1x15.__version__))
+
+# set gain to 4.096V max
+ADS.setGain(ADS.PGA_2_048V)
+f = ADS.toVoltage()
+
+while True :
+    val_0 = ADS.readADC(0)
+    val_1 = ADS.readADC(1)
+    val_2 = ADS.readADC(2)
+    val_3 = ADS.readADC(3)
+    print("Analog0: {0:d}\t{1:.3f} V".format(val_0, val_0 * f))
+    print("Analog1: {0:d}\t{1:.3f} V".format(val_1, val_1 * f))
+    print("Analog2: {0:d}\t{1:.3f} V".format(val_2, val_2 * f))
+    print("Analog3: {0:d}\t{1:.3f} V".format(val_3, val_3 * f))
+    time.sleep(1)

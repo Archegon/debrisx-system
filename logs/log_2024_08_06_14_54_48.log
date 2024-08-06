@@ -1,0 +1,7 @@
+2024-08-06 14:54:48,092 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 14:54:48,097 - ADCController - ERROR - Error reading voltage: 'ADS1115' object has no attribute 'readVoltage'
+2024-08-06 14:54:49,100 - ADCController - ERROR - Error reading voltage: 'ADS1115' object has no attribute 'readVoltage'
+2024-08-06 14:54:50,102 - ADCController - ERROR - Error reading voltage: 'ADS1115' object has no attribute 'readVoltage'
+2024-08-06 14:54:51,105 - ADCController - ERROR - Error reading voltage: 'ADS1115' object has no attribute 'readVoltage'
+2024-08-06 14:54:52,107 - ADCController - ERROR - Error reading voltage: 'ADS1115' object has no attribute 'readVoltage'
+2024-08-06 14:54:53,109 - ADCController - ERROR - Error reading voltage: 'ADS1115' object has no attribute 'readVoltage'

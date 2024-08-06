@@ -4,7 +4,7 @@ from modules.adc.adc_controller import ADCController
 from core.logger import Logger
 
 class TurbiditySensor:
-    def __init__(self, adc_channel=0):
+    def __init__(self, adc_channel=2):
         self.logger = Logger(self.__class__.__name__).get_logger()
         self.adc = ADCController()
         self.adc_channel = adc_channel
@@ -26,9 +26,13 @@ class TurbiditySensor:
             return None
 
     def voltage_to_turbidity(self, voltage):
-        # Assuming a specific conversion factor for demonstration purposes
-        conversion_factor = 5.0  # This needs to be calibrated based on the sensor specifications
-        turbidity_value = voltage * conversion_factor
+        # Convert voltage to turbidity value based on the sensor's characteristics
+        # Assuming that the sensor outputs a voltage range of 0-4.5V corresponding to 0-3000 NTU
+        max_voltage = 4.5
+        max_turbidity = 3000
+
+        # Linear mapping from voltage to turbidity
+        turbidity_value = (voltage / max_voltage) * max_turbidity
         return turbidity_value
 
     async def cleanup(self):

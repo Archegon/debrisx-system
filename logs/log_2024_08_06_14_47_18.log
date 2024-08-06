@@ -1,0 +1,255 @@
+2024-08-06 14:47:18,344 - BoatController - INFO - Initializing RC Boat Controller
+2024-08-06 14:47:18,516 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 14:47:18,527 - TDSSensor - INFO - TDS Sensor initialized
+2024-08-06 14:47:18,532 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 14:47:18,532 - ADCController - INFO - Initializing ADC Controller
+2024-08-06 14:47:18,542 - TurbiditySensor - INFO - Turbidity Sensor initialized
+2024-08-06 14:47:18,568 - server.websockets.connection - INFO - BACKEND_IP env: 192.168.215.96:5000
+2024-08-06 14:47:20,921 - server.websockets.connection - INFO - Connecting to ws://192.168.215.96:5000/ws?client=raspberry
+2024-08-06 14:47:20,986 - server.websockets.connection - INFO - Connected to WebSocket
+2024-08-06 14:47:20,997 - ADCController - DEBUG - Channel 0 raw value: 4612, voltage: 0.577 V
+2024-08-06 14:47:20,997 - ADCController - DEBUG - Channel 0 raw value: 4612, voltage: 0.577 V
+2024-08-06 14:47:21,000 - TDSSensor - DEBUG - Voltage: 0.577 V, TDS: 250.66 ppm
+2024-08-06 14:47:21,004 - ADCController - DEBUG - Channel 1 raw value: 205, voltage: 0.026 V
+2024-08-06 14:47:21,004 - ADCController - DEBUG - Channel 1 raw value: 205, voltage: 0.026 V
+2024-08-06 14:47:21,007 - TurbiditySensor - DEBUG - Voltage: 0.026 V, Turbidity: 17.08 NTU
+2024-08-06 14:47:21,016 - BoatController - INFO - Sensor data: {"distance_1": 63.762312788836084, "distance_2": 39.62813126286699, "tds": 250.65982344378824, "turbidity": 17.083854691203552}
+2024-08-06 14:47:21,023 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 63.762312788836084, "distance_2": 39.62813126286699, "tds": 250.65982344378824, "turbidity": 17.083854691203552}
+2024-08-06 14:47:23,032 - ADCController - DEBUG - Channel 0 raw value: 4652, voltage: 0.582 V
+2024-08-06 14:47:23,032 - ADCController - DEBUG - Channel 0 raw value: 4652, voltage: 0.582 V
+2024-08-06 14:47:23,037 - TDSSensor - DEBUG - Voltage: 0.582 V, TDS: 252.83 ppm
+2024-08-06 14:47:23,042 - ADCController - DEBUG - Channel 1 raw value: 204, voltage: 0.026 V
+2024-08-06 14:47:23,042 - ADCController - DEBUG - Channel 1 raw value: 204, voltage: 0.026 V
+2024-08-06 14:47:23,046 - TurbiditySensor - DEBUG - Voltage: 0.026 V, Turbidity: 17.00 NTU
+2024-08-06 14:47:23,048 - BoatController - INFO - Sensor data: {"distance_1": 55.7104801325105, "distance_2": 32.865033952782255, "tds": 252.8338028318523, "turbidity": 17.000518814661092}
+2024-08-06 14:47:23,050 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 55.7104801325105, "distance_2": 32.865033952782255, "tds": 252.8338028318523, "turbidity": 17.000518814661092}
+2024-08-06 14:47:25,054 - ADCController - DEBUG - Channel 0 raw value: 4620, voltage: 0.578 V
+2024-08-06 14:47:25,054 - ADCController - DEBUG - Channel 0 raw value: 4620, voltage: 0.578 V
+2024-08-06 14:47:25,056 - TDSSensor - DEBUG - Voltage: 0.578 V, TDS: 251.09 ppm
+2024-08-06 14:47:25,061 - ADCController - DEBUG - Channel 1 raw value: 4620, voltage: 0.578 V
+2024-08-06 14:47:25,061 - ADCController - DEBUG - Channel 1 raw value: 4620, voltage: 0.578 V
+2024-08-06 14:47:25,064 - TurbiditySensor - DEBUG - Voltage: 0.578 V, Turbidity: 385.01 NTU
+2024-08-06 14:47:25,067 - BoatController - INFO - Sensor data: {"distance_1": 56.33753033640539, "distance_2": 33.873480342404946, "tds": 251.09461932140104, "turbidity": 385.01174962614823}
+2024-08-06 14:47:25,070 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.33753033640539, "distance_2": 33.873480342404946, "tds": 251.09461932140104, "turbidity": 385.01174962614823}
+2024-08-06 14:47:27,075 - ADCController - DEBUG - Channel 0 raw value: 4632, voltage: 0.579 V
+2024-08-06 14:47:27,075 - ADCController - DEBUG - Channel 0 raw value: 4632, voltage: 0.579 V
+2024-08-06 14:47:27,077 - TDSSensor - DEBUG - Voltage: 0.579 V, TDS: 251.75 ppm
+2024-08-06 14:47:27,082 - ADCController - DEBUG - Channel 1 raw value: 4615, voltage: 0.577 V
+2024-08-06 14:47:27,082 - ADCController - DEBUG - Channel 1 raw value: 4615, voltage: 0.577 V
+2024-08-06 14:47:27,084 - TurbiditySensor - DEBUG - Voltage: 0.577 V, Turbidity: 384.60 NTU
+2024-08-06 14:47:27,086 - BoatController - INFO - Sensor data: {"distance_1": 55.92603024899165, "distance_2": 33.77904951603068, "tds": 251.74681313782028, "turbidity": 384.595070243436}
+2024-08-06 14:47:27,089 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 55.92603024899165, "distance_2": 33.77904951603068, "tds": 251.74681313782028, "turbidity": 384.595070243436}
+2024-08-06 14:47:29,095 - ADCController - DEBUG - Channel 0 raw value: 4640, voltage: 0.580 V
+2024-08-06 14:47:29,095 - ADCController - DEBUG - Channel 0 raw value: 4640, voltage: 0.580 V
+2024-08-06 14:47:29,097 - TDSSensor - DEBUG - Voltage: 0.580 V, TDS: 252.18 ppm
+2024-08-06 14:47:29,103 - ADCController - DEBUG - Channel 1 raw value: 4634, voltage: 0.579 V
+2024-08-06 14:47:29,103 - ADCController - DEBUG - Channel 1 raw value: 4634, voltage: 0.579 V
+2024-08-06 14:47:29,105 - TurbiditySensor - DEBUG - Voltage: 0.579 V, Turbidity: 386.18 NTU
+2024-08-06 14:47:29,107 - BoatController - INFO - Sensor data: {"distance_1": 56.32512148790306, "distance_2": 33.90626167109292, "tds": 252.18160901543308, "turbidity": 386.17845189774266}
+2024-08-06 14:47:29,112 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.32512148790306, "distance_2": 33.90626167109292, "tds": 252.18160901543308, "turbidity": 386.17845189774266}
+2024-08-06 14:47:31,116 - ADCController - DEBUG - Channel 0 raw value: 4618, voltage: 0.577 V
+2024-08-06 14:47:31,116 - ADCController - DEBUG - Channel 0 raw value: 4618, voltage: 0.577 V
+2024-08-06 14:47:31,118 - TDSSensor - DEBUG - Voltage: 0.577 V, TDS: 250.99 ppm
+2024-08-06 14:47:31,122 - ADCController - DEBUG - Channel 1 raw value: 4618, voltage: 0.577 V
+2024-08-06 14:47:31,122 - ADCController - DEBUG - Channel 1 raw value: 4618, voltage: 0.577 V
+2024-08-06 14:47:31,125 - TurbiditySensor - DEBUG - Voltage: 0.577 V, Turbidity: 384.85 NTU
+2024-08-06 14:47:31,127 - BoatController - INFO - Sensor data: {"distance_1": 56.23439786934773, "distance_2": 33.899379308682, "tds": 250.98592035199786, "turbidity": 384.84507787306336}
+2024-08-06 14:47:31,129 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.23439786934773, "distance_2": 33.899379308682, "tds": 250.98592035199786, "turbidity": 384.84507787306336}
+2024-08-06 14:47:33,134 - ADCController - DEBUG - Channel 0 raw value: 4617, voltage: 0.577 V
+2024-08-06 14:47:33,134 - ADCController - DEBUG - Channel 0 raw value: 4617, voltage: 0.577 V
+2024-08-06 14:47:33,136 - TDSSensor - DEBUG - Voltage: 0.577 V, TDS: 250.93 ppm
+2024-08-06 14:47:33,139 - ADCController - DEBUG - Channel 1 raw value: 4624, voltage: 0.578 V
+2024-08-06 14:47:33,139 - ADCController - DEBUG - Channel 1 raw value: 4624, voltage: 0.578 V
+2024-08-06 14:47:33,142 - TurbiditySensor - DEBUG - Voltage: 0.578 V, Turbidity: 385.35 NTU
+2024-08-06 14:47:33,145 - BoatController - INFO - Sensor data: {"distance_1": 57.324522976570044, "distance_2": 34.04353134510927, "tds": 250.93157086729622, "turbidity": 385.345093132318}
+2024-08-06 14:47:33,147 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 57.324522976570044, "distance_2": 34.04353134510927, "tds": 250.93157086729622, "turbidity": 385.345093132318}
+2024-08-06 14:47:35,153 - ADCController - DEBUG - Channel 0 raw value: 4623, voltage: 0.578 V
+2024-08-06 14:47:35,153 - ADCController - DEBUG - Channel 0 raw value: 4623, voltage: 0.578 V
+2024-08-06 14:47:35,155 - TDSSensor - DEBUG - Voltage: 0.578 V, TDS: 251.26 ppm
+2024-08-06 14:47:35,160 - ADCController - DEBUG - Channel 1 raw value: 4649, voltage: 0.581 V
+2024-08-06 14:47:35,160 - ADCController - DEBUG - Channel 1 raw value: 4649, voltage: 0.581 V
+2024-08-06 14:47:35,163 - TurbiditySensor - DEBUG - Voltage: 0.581 V, Turbidity: 387.43 NTU
+2024-08-06 14:47:35,164 - BoatController - INFO - Sensor data: {"distance_1": 57.02532039885034, "distance_2": 33.8819931901337, "tds": 251.2576677755059, "turbidity": 387.4284900458794}
+2024-08-06 14:47:35,170 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 57.02532039885034, "distance_2": 33.8819931901337, "tds": 251.2576677755059, "turbidity": 387.4284900458794}
+2024-08-06 14:47:37,176 - ADCController - DEBUG - Channel 0 raw value: 4597, voltage: 0.575 V
+2024-08-06 14:47:37,176 - ADCController - DEBUG - Channel 0 raw value: 4597, voltage: 0.575 V
+2024-08-06 14:47:37,178 - TDSSensor - DEBUG - Voltage: 0.575 V, TDS: 249.84 ppm
+2024-08-06 14:47:37,183 - ADCController - DEBUG - Channel 1 raw value: 4620, voltage: 0.578 V
+2024-08-06 14:47:37,183 - ADCController - DEBUG - Channel 1 raw value: 4620, voltage: 0.578 V
+2024-08-06 14:47:37,186 - TurbiditySensor - DEBUG - Voltage: 0.578 V, Turbidity: 385.01 NTU
+2024-08-06 14:47:37,188 - BoatController - INFO - Sensor data: {"distance_1": 55.92814129908095, "distance_2": 34.09951705220499, "tds": 249.84458117326426, "turbidity": 385.01174962614823}
+2024-08-06 14:47:37,192 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 55.92814129908095, "distance_2": 34.09951705220499, "tds": 249.84458117326426, "turbidity": 385.01174962614823}
+2024-08-06 14:47:39,196 - ADCController - DEBUG - Channel 0 raw value: 4631, voltage: 0.579 V
+2024-08-06 14:47:39,196 - ADCController - DEBUG - Channel 0 raw value: 4631, voltage: 0.579 V
+2024-08-06 14:47:39,198 - TDSSensor - DEBUG - Voltage: 0.579 V, TDS: 251.69 ppm
+2024-08-06 14:47:39,202 - ADCController - DEBUG - Channel 1 raw value: 4619, voltage: 0.577 V
+2024-08-06 14:47:39,202 - ADCController - DEBUG - Channel 1 raw value: 4619, voltage: 0.577 V
+2024-08-06 14:47:39,205 - TurbiditySensor - DEBUG - Voltage: 0.577 V, Turbidity: 384.93 NTU
+2024-08-06 14:47:39,207 - BoatController - INFO - Sensor data: {"distance_1": 55.79797710606715, "distance_2": 34.0121230555593, "tds": 251.6924636531187, "turbidity": 384.92841374960574}
+2024-08-06 14:47:39,212 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 55.79797710606715, "distance_2": 34.0121230555593, "tds": 251.6924636531187, "turbidity": 384.92841374960574}
+2024-08-06 14:47:41,217 - ADCController - DEBUG - Channel 0 raw value: 4642, voltage: 0.580 V
+2024-08-06 14:47:41,217 - ADCController - DEBUG - Channel 0 raw value: 4642, voltage: 0.580 V
+2024-08-06 14:47:41,219 - TDSSensor - DEBUG - Voltage: 0.580 V, TDS: 252.29 ppm
+2024-08-06 14:47:41,222 - ADCController - DEBUG - Channel 1 raw value: 4609, voltage: 0.576 V
+2024-08-06 14:47:41,222 - ADCController - DEBUG - Channel 1 raw value: 4609, voltage: 0.576 V
+2024-08-06 14:47:41,225 - TurbiditySensor - DEBUG - Voltage: 0.576 V, Turbidity: 384.10 NTU
+2024-08-06 14:47:41,227 - BoatController - INFO - Sensor data: {"distance_1": 57.10145546754006, "distance_2": 34.30538723759253, "tds": 252.29030798483632, "turbidity": 384.09505498418116}
+2024-08-06 14:47:41,230 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 57.10145546754006, "distance_2": 34.30538723759253, "tds": 252.29030798483632, "turbidity": 384.09505498418116}
+2024-08-06 14:47:43,235 - ADCController - DEBUG - Channel 0 raw value: 4646, voltage: 0.581 V
+2024-08-06 14:47:43,235 - ADCController - DEBUG - Channel 0 raw value: 4646, voltage: 0.581 V
+2024-08-06 14:47:43,238 - TDSSensor - DEBUG - Voltage: 0.581 V, TDS: 252.51 ppm
+2024-08-06 14:47:43,242 - ADCController - DEBUG - Channel 1 raw value: 4672, voltage: 0.584 V
+2024-08-06 14:47:43,242 - ADCController - DEBUG - Channel 1 raw value: 4672, voltage: 0.584 V
+2024-08-06 14:47:43,245 - TurbiditySensor - DEBUG - Voltage: 0.584 V, Turbidity: 389.35 NTU
+2024-08-06 14:47:43,248 - BoatController - INFO - Sensor data: {"distance_1": 56.746044064133, "distance_2": 33.97227056955455, "tds": 252.50770592364273, "turbidity": 389.34521520635593}
+2024-08-06 14:47:43,251 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.746044064133, "distance_2": 33.97227056955455, "tds": 252.50770592364273, "turbidity": 389.34521520635593}
+2024-08-06 14:47:45,257 - ADCController - DEBUG - Channel 0 raw value: 4658, voltage: 0.582 V
+2024-08-06 14:47:45,257 - ADCController - DEBUG - Channel 0 raw value: 4658, voltage: 0.582 V
+2024-08-06 14:47:45,260 - TDSSensor - DEBUG - Voltage: 0.582 V, TDS: 253.16 ppm
+2024-08-06 14:47:45,266 - ADCController - DEBUG - Channel 1 raw value: 4574, voltage: 0.572 V
+2024-08-06 14:47:45,266 - ADCController - DEBUG - Channel 1 raw value: 4574, voltage: 0.572 V
+2024-08-06 14:47:45,267 - TurbiditySensor - DEBUG - Voltage: 0.572 V, Turbidity: 381.18 NTU
+2024-08-06 14:47:45,269 - BoatController - INFO - Sensor data: {"distance_1": 55.77029318715461, "distance_2": 33.790926311306066, "tds": 253.15989974006192, "turbidity": 381.1782993051952}
+2024-08-06 14:47:45,271 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 55.77029318715461, "distance_2": 33.790926311306066, "tds": 253.15989974006192, "turbidity": 381.1782993051952}
+2024-08-06 14:47:47,277 - ADCController - DEBUG - Channel 0 raw value: 4649, voltage: 0.581 V
+2024-08-06 14:47:47,277 - ADCController - DEBUG - Channel 0 raw value: 4649, voltage: 0.581 V
+2024-08-06 14:47:47,279 - TDSSensor - DEBUG - Voltage: 0.581 V, TDS: 252.67 ppm
+2024-08-06 14:47:47,283 - ADCController - DEBUG - Channel 1 raw value: 4606, voltage: 0.576 V
+2024-08-06 14:47:47,283 - ADCController - DEBUG - Channel 1 raw value: 4606, voltage: 0.576 V
+2024-08-06 14:47:47,285 - TurbiditySensor - DEBUG - Voltage: 0.576 V, Turbidity: 383.85 NTU
+2024-08-06 14:47:47,288 - BoatController - INFO - Sensor data: {"distance_1": 54.084972402770624, "distance_2": 34.037781740426226, "tds": 252.6707543777475, "turbidity": 383.84504735455386}
+2024-08-06 14:47:47,290 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 54.084972402770624, "distance_2": 34.037781740426226, "tds": 252.6707543777475, "turbidity": 383.84504735455386}
+2024-08-06 14:47:49,294 - ADCController - DEBUG - Channel 0 raw value: 4637, voltage: 0.580 V
+2024-08-06 14:47:49,294 - ADCController - DEBUG - Channel 0 raw value: 4637, voltage: 0.580 V
+2024-08-06 14:47:49,297 - TDSSensor - DEBUG - Voltage: 0.580 V, TDS: 252.02 ppm
+2024-08-06 14:47:49,301 - ADCController - DEBUG - Channel 1 raw value: 4637, voltage: 0.580 V
+2024-08-06 14:47:49,301 - ADCController - DEBUG - Channel 1 raw value: 4637, voltage: 0.580 V
+2024-08-06 14:47:49,305 - TurbiditySensor - DEBUG - Voltage: 0.580 V, Turbidity: 386.43 NTU
+2024-08-06 14:47:49,308 - BoatController - INFO - Sensor data: {"distance_1": 55.8155176919331, "distance_2": 33.83599635071812, "tds": 252.01856056132831, "turbidity": 386.4284595273701}
+2024-08-06 14:47:49,312 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 55.8155176919331, "distance_2": 33.83599635071812, "tds": 252.01856056132831, "turbidity": 386.4284595273701}
+2024-08-06 14:47:51,317 - ADCController - DEBUG - Channel 0 raw value: 4650, voltage: 0.581 V
+2024-08-06 14:47:51,317 - ADCController - DEBUG - Channel 0 raw value: 4650, voltage: 0.581 V
+2024-08-06 14:47:51,320 - TDSSensor - DEBUG - Voltage: 0.581 V, TDS: 252.73 ppm
+2024-08-06 14:47:51,324 - ADCController - DEBUG - Channel 1 raw value: 4599, voltage: 0.575 V
+2024-08-06 14:47:51,324 - ADCController - DEBUG - Channel 1 raw value: 4599, voltage: 0.575 V
+2024-08-06 14:47:51,329 - TurbiditySensor - DEBUG - Voltage: 0.575 V, Turbidity: 383.26 NTU
+2024-08-06 14:47:51,332 - BoatController - INFO - Sensor data: {"distance_1": 53.606244843123704, "distance_2": 33.771720914485286, "tds": 252.72510386244912, "turbidity": 383.2616962187567}
+2024-08-06 14:47:51,335 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 53.606244843123704, "distance_2": 33.771720914485286, "tds": 252.72510386244912, "turbidity": 383.2616962187567}
+2024-08-06 14:47:53,340 - ADCController - DEBUG - Channel 0 raw value: 4631, voltage: 0.579 V
+2024-08-06 14:47:53,340 - ADCController - DEBUG - Channel 0 raw value: 4631, voltage: 0.579 V
+2024-08-06 14:47:53,343 - TDSSensor - DEBUG - Voltage: 0.579 V, TDS: 251.69 ppm
+2024-08-06 14:47:53,347 - ADCController - DEBUG - Channel 1 raw value: 4603, voltage: 0.575 V
+2024-08-06 14:47:53,347 - ADCController - DEBUG - Channel 1 raw value: 4603, voltage: 0.575 V
+2024-08-06 14:47:53,350 - TurbiditySensor - DEBUG - Voltage: 0.575 V, Turbidity: 383.60 NTU
+2024-08-06 14:47:53,352 - BoatController - INFO - Sensor data: {"distance_1": 56.9600323465703, "distance_2": 33.53595278318494, "tds": 251.6924636531187, "turbidity": 383.59503972492655}
+2024-08-06 14:47:53,356 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.9600323465703, "distance_2": 33.53595278318494, "tds": 251.6924636531187, "turbidity": 383.59503972492655}
+2024-08-06 14:47:55,362 - ADCController - DEBUG - Channel 0 raw value: 4654, voltage: 0.582 V
+2024-08-06 14:47:55,362 - ADCController - DEBUG - Channel 0 raw value: 4654, voltage: 0.582 V
+2024-08-06 14:47:55,364 - TDSSensor - DEBUG - Voltage: 0.582 V, TDS: 252.94 ppm
+2024-08-06 14:47:55,368 - ADCController - DEBUG - Channel 1 raw value: 4601, voltage: 0.575 V
+2024-08-06 14:47:55,368 - ADCController - DEBUG - Channel 1 raw value: 4601, voltage: 0.575 V
+2024-08-06 14:47:55,370 - TurbiditySensor - DEBUG - Voltage: 0.575 V, Turbidity: 383.43 NTU
+2024-08-06 14:47:55,371 - BoatController - INFO - Sensor data: {"distance_1": 55.98967065313536, "distance_2": 33.36439143684345, "tds": 252.9425018012555, "turbidity": 383.4283679718417}
+2024-08-06 14:47:55,374 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 55.98967065313536, "distance_2": 33.36439143684345, "tds": 252.9425018012555, "turbidity": 383.4283679718417}
+2024-08-06 14:47:57,379 - ADCController - DEBUG - Channel 0 raw value: 4653, voltage: 0.582 V
+2024-08-06 14:47:57,379 - ADCController - DEBUG - Channel 0 raw value: 4653, voltage: 0.582 V
+2024-08-06 14:47:57,382 - TDSSensor - DEBUG - Voltage: 0.582 V, TDS: 252.89 ppm
+2024-08-06 14:47:57,386 - ADCController - DEBUG - Channel 1 raw value: 4653, voltage: 0.582 V
+2024-08-06 14:47:57,386 - ADCController - DEBUG - Channel 1 raw value: 4653, voltage: 0.582 V
+2024-08-06 14:47:57,390 - TurbiditySensor - DEBUG - Voltage: 0.582 V, Turbidity: 387.76 NTU
+2024-08-06 14:47:57,391 - BoatController - INFO - Sensor data: {"distance_1": 56.2446098556195, "distance_2": 33.85527039881288, "tds": 252.8881523165539, "turbidity": 387.7618335520493}
+2024-08-06 14:47:57,400 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.2446098556195, "distance_2": 33.85527039881288, "tds": 252.8881523165539, "turbidity": 387.7618335520493}
+2024-08-06 14:47:59,407 - ADCController - DEBUG - Channel 0 raw value: 4596, voltage: 0.575 V
+2024-08-06 14:47:59,407 - ADCController - DEBUG - Channel 0 raw value: 4596, voltage: 0.575 V
+2024-08-06 14:47:59,409 - TDSSensor - DEBUG - Voltage: 0.575 V, TDS: 249.79 ppm
+2024-08-06 14:47:59,413 - ADCController - DEBUG - Channel 1 raw value: 4596, voltage: 0.575 V
+2024-08-06 14:47:59,413 - ADCController - DEBUG - Channel 1 raw value: 4596, voltage: 0.575 V
+2024-08-06 14:47:59,417 - TurbiditySensor - DEBUG - Voltage: 0.575 V, Turbidity: 383.01 NTU
+2024-08-06 14:47:59,418 - BoatController - INFO - Sensor data: {"distance_1": 53.831457729831186, "distance_2": 34.53552590393929, "tds": 249.7902316885626, "turbidity": 383.0116885891294}
+2024-08-06 14:47:59,421 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 53.831457729831186, "distance_2": 34.53552590393929, "tds": 249.7902316885626, "turbidity": 383.0116885891294}
+2024-08-06 14:48:01,425 - ADCController - DEBUG - Channel 0 raw value: 4649, voltage: 0.581 V
+2024-08-06 14:48:01,425 - ADCController - DEBUG - Channel 0 raw value: 4649, voltage: 0.581 V
+2024-08-06 14:48:01,427 - TDSSensor - DEBUG - Voltage: 0.581 V, TDS: 252.67 ppm
+2024-08-06 14:48:01,431 - ADCController - DEBUG - Channel 1 raw value: 4604, voltage: 0.576 V
+2024-08-06 14:48:01,431 - ADCController - DEBUG - Channel 1 raw value: 4604, voltage: 0.576 V
+2024-08-06 14:48:01,433 - TurbiditySensor - DEBUG - Voltage: 0.576 V, Turbidity: 383.68 NTU
+2024-08-06 14:48:01,435 - BoatController - INFO - Sensor data: {"distance_1": 56.93936809456785, "distance_2": 33.734751811255705, "tds": 252.6707543777475, "turbidity": 383.678375601469}
+2024-08-06 14:48:01,438 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.93936809456785, "distance_2": 33.734751811255705, "tds": 252.6707543777475, "turbidity": 383.678375601469}
+2024-08-06 14:48:03,443 - ADCController - DEBUG - Channel 0 raw value: 4641, voltage: 0.580 V
+2024-08-06 14:48:03,443 - ADCController - DEBUG - Channel 0 raw value: 4641, voltage: 0.580 V
+2024-08-06 14:48:03,447 - TDSSensor - DEBUG - Voltage: 0.580 V, TDS: 252.24 ppm
+2024-08-06 14:48:03,451 - ADCController - DEBUG - Channel 1 raw value: 4630, voltage: 0.579 V
+2024-08-06 14:48:03,451 - ADCController - DEBUG - Channel 1 raw value: 4630, voltage: 0.579 V
+2024-08-06 14:48:03,456 - TurbiditySensor - DEBUG - Voltage: 0.579 V, Turbidity: 385.85 NTU
+2024-08-06 14:48:03,457 - BoatController - INFO - Sensor data: {"distance_1": 56.90564279915543, "distance_2": 33.06184207244439, "tds": 252.2359585001347, "turbidity": 385.8451083915728}
+2024-08-06 14:48:03,464 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.90564279915543, "distance_2": 33.06184207244439, "tds": 252.2359585001347, "turbidity": 385.8451083915728}
+2024-08-06 14:48:05,468 - ADCController - DEBUG - Channel 0 raw value: 4629, voltage: 0.579 V
+2024-08-06 14:48:05,468 - ADCController - DEBUG - Channel 0 raw value: 4629, voltage: 0.579 V
+2024-08-06 14:48:05,471 - TDSSensor - DEBUG - Voltage: 0.579 V, TDS: 251.58 ppm
+2024-08-06 14:48:05,477 - ADCController - DEBUG - Channel 1 raw value: 4615, voltage: 0.577 V
+2024-08-06 14:48:05,477 - ADCController - DEBUG - Channel 1 raw value: 4615, voltage: 0.577 V
+2024-08-06 14:48:05,480 - TurbiditySensor - DEBUG - Voltage: 0.577 V, Turbidity: 384.60 NTU
+2024-08-06 14:48:05,482 - BoatController - INFO - Sensor data: {"distance_1": 56.840543541781244, "distance_2": 33.76269317634808, "tds": 251.58376468371551, "turbidity": 384.595070243436}
+2024-08-06 14:48:05,485 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.840543541781244, "distance_2": 33.76269317634808, "tds": 251.58376468371551, "turbidity": 384.595070243436}
+2024-08-06 14:48:07,490 - ADCController - DEBUG - Channel 0 raw value: 4622, voltage: 0.578 V
+2024-08-06 14:48:07,490 - ADCController - DEBUG - Channel 0 raw value: 4622, voltage: 0.578 V
+2024-08-06 14:48:07,492 - TDSSensor - DEBUG - Voltage: 0.578 V, TDS: 251.20 ppm
+2024-08-06 14:48:07,499 - ADCController - DEBUG - Channel 1 raw value: 4626, voltage: 0.578 V
+2024-08-06 14:48:07,499 - ADCController - DEBUG - Channel 1 raw value: 4626, voltage: 0.578 V
+2024-08-06 14:48:07,502 - TurbiditySensor - DEBUG - Voltage: 0.578 V, Turbidity: 385.51 NTU
+2024-08-06 14:48:07,504 - BoatController - INFO - Sensor data: {"distance_1": 56.28650473848836, "distance_2": 33.97997675700924, "tds": 251.20331829080428, "turbidity": 385.51176488540307}
+2024-08-06 14:48:07,509 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.28650473848836, "distance_2": 33.97997675700924, "tds": 251.20331829080428, "turbidity": 385.51176488540307}
+2024-08-06 14:48:09,517 - ADCController - DEBUG - Channel 0 raw value: 4651, voltage: 0.581 V
+2024-08-06 14:48:09,517 - ADCController - DEBUG - Channel 0 raw value: 4651, voltage: 0.581 V
+2024-08-06 14:48:09,519 - TDSSensor - DEBUG - Voltage: 0.581 V, TDS: 252.78 ppm
+2024-08-06 14:48:09,523 - ADCController - DEBUG - Channel 1 raw value: 4606, voltage: 0.576 V
+2024-08-06 14:48:09,523 - ADCController - DEBUG - Channel 1 raw value: 4606, voltage: 0.576 V
+2024-08-06 14:48:09,527 - TurbiditySensor - DEBUG - Voltage: 0.576 V, Turbidity: 383.85 NTU
+2024-08-06 14:48:09,529 - BoatController - INFO - Sensor data: {"distance_1": 56.64322052975944, "distance_2": 33.21136612764542, "tds": 252.77945334715068, "turbidity": 383.84504735455386}
+2024-08-06 14:48:09,532 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.64322052975944, "distance_2": 33.21136612764542, "tds": 252.77945334715068, "turbidity": 383.84504735455386}
+2024-08-06 14:48:11,537 - ADCController - DEBUG - Channel 0 raw value: 4648, voltage: 0.581 V
+2024-08-06 14:48:11,537 - ADCController - DEBUG - Channel 0 raw value: 4648, voltage: 0.581 V
+2024-08-06 14:48:11,540 - TDSSensor - DEBUG - Voltage: 0.581 V, TDS: 252.62 ppm
+2024-08-06 14:48:11,544 - ADCController - DEBUG - Channel 1 raw value: 4607, voltage: 0.576 V
+2024-08-06 14:48:11,544 - ADCController - DEBUG - Channel 1 raw value: 4607, voltage: 0.576 V
+2024-08-06 14:48:11,546 - TurbiditySensor - DEBUG - Voltage: 0.576 V, Turbidity: 383.93 NTU
+2024-08-06 14:48:11,548 - BoatController - INFO - Sensor data: {"distance_1": 56.06776230459673, "distance_2": 33.620823820146256, "tds": 252.61640489304588, "turbidity": 383.9283832310963}
+2024-08-06 14:48:11,552 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.06776230459673, "distance_2": 33.620823820146256, "tds": 252.61640489304588, "turbidity": 383.9283832310963}
+2024-08-06 14:48:13,558 - ADCController - DEBUG - Channel 0 raw value: 4665, voltage: 0.583 V
+2024-08-06 14:48:13,558 - ADCController - DEBUG - Channel 0 raw value: 4665, voltage: 0.583 V
+2024-08-06 14:48:13,560 - TDSSensor - DEBUG - Voltage: 0.583 V, TDS: 253.54 ppm
+2024-08-06 14:48:13,565 - ADCController - DEBUG - Channel 1 raw value: 4647, voltage: 0.581 V
+2024-08-06 14:48:13,565 - ADCController - DEBUG - Channel 1 raw value: 4647, voltage: 0.581 V
+2024-08-06 14:48:13,567 - TurbiditySensor - DEBUG - Voltage: 0.581 V, Turbidity: 387.26 NTU
+2024-08-06 14:48:13,569 - BoatController - INFO - Sensor data: {"distance_1": 56.27167590526142, "distance_2": 33.02648629171415, "tds": 253.54034613297316, "turbidity": 387.26181829279454}
+2024-08-06 14:48:13,572 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.27167590526142, "distance_2": 33.02648629171415, "tds": 253.54034613297316, "turbidity": 387.26181829279454}
+2024-08-06 14:48:15,577 - ADCController - DEBUG - Channel 0 raw value: 4636, voltage: 0.580 V
+2024-08-06 14:48:15,577 - ADCController - DEBUG - Channel 0 raw value: 4636, voltage: 0.580 V
+2024-08-06 14:48:15,579 - TDSSensor - DEBUG - Voltage: 0.580 V, TDS: 251.96 ppm
+2024-08-06 14:48:15,583 - ADCController - DEBUG - Channel 1 raw value: 4636, voltage: 0.580 V
+2024-08-06 14:48:15,583 - ADCController - DEBUG - Channel 1 raw value: 4636, voltage: 0.580 V
+2024-08-06 14:48:15,585 - TurbiditySensor - DEBUG - Voltage: 0.580 V, Turbidity: 386.35 NTU
+2024-08-06 14:48:15,587 - BoatController - INFO - Sensor data: {"distance_1": 56.70260451003878, "distance_2": 34.15905549980198, "tds": 251.9642110766267, "turbidity": 386.34512365082765}
+2024-08-06 14:48:15,590 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 56.70260451003878, "distance_2": 34.15905549980198, "tds": 251.9642110766267, "turbidity": 386.34512365082765}
+2024-08-06 14:48:17,594 - ADCController - DEBUG - Channel 0 raw value: 4646, voltage: 0.581 V
+2024-08-06 14:48:17,594 - ADCController - DEBUG - Channel 0 raw value: 4646, voltage: 0.581 V
+2024-08-06 14:48:17,596 - TDSSensor - DEBUG - Voltage: 0.581 V, TDS: 252.51 ppm
+2024-08-06 14:48:17,600 - ADCController - DEBUG - Channel 1 raw value: 4610, voltage: 0.576 V
+2024-08-06 14:48:17,600 - ADCController - DEBUG - Channel 1 raw value: 4610, voltage: 0.576 V
+2024-08-06 14:48:17,610 - TurbiditySensor - DEBUG - Voltage: 0.576 V, Turbidity: 384.18 NTU
+2024-08-06 14:48:17,616 - BoatController - INFO - Sensor data: {"distance_1": 55.89199602089513, "distance_2": 34.59976701453513, "tds": 252.50770592364273, "turbidity": 384.1783908607237}
+2024-08-06 14:48:17,622 - server.websockets.connection - INFO - Sent sensor data: {"distance_1": 55.89199602089513, "distance_2": 34.59976701453513, "tds": 252.50770592364273, "turbidity": 384.1783908607237}
+2024-08-06 14:48:18,878 - server.websockets.connection - ERROR - Connection closed with error: received 1012 (service restart); then sent 1012 (service restart)
+2024-08-06 14:48:18,881 - server.websockets.connection - INFO - Retrying connection in 5 seconds...
+2024-08-06 14:48:19,626 - ADCController - DEBUG - Channel 0 raw value: 4624, voltage: 0.578 V
+2024-08-06 14:48:19,626 - ADCController - DEBUG - Channel 0 raw value: 4624, voltage: 0.578 V
+2024-08-06 14:48:19,628 - TDSSensor - DEBUG - Voltage: 0.578 V, TDS: 251.31 ppm
+2024-08-06 14:48:19,632 - ADCController - DEBUG - Channel 1 raw value: 4624, voltage: 0.578 V
+2024-08-06 14:48:19,632 - ADCController - DEBUG - Channel 1 raw value: 4624, voltage: 0.578 V
+2024-08-06 14:48:19,634 - TurbiditySensor - DEBUG - Voltage: 0.578 V, Turbidity: 385.35 NTU
+2024-08-06 14:48:19,635 - BoatController - INFO - Sensor data: {"distance_1": 56.0744387092833, "distance_2": 33.99111554523574, "tds": 251.31201726020745, "turbidity": 385.345093132318}
+2024-08-06 14:48:19,636 - server.websockets.connection - ERROR - Error sending sensor data: received 1012 (service restart); then sent 1012 (service restart)
+2024-08-06 14:48:23,883 - server.websockets.connection - INFO - Connecting to ws://192.168.215.96:5000/ws?client=raspberry
+2024-08-06 14:48:24,295 - server.websockets.connection - ERROR - Connection attempt failed: did not receive a valid HTTP response
+2024-08-06 14:48:24,296 - server.websockets.connection - INFO - Retrying connection in 5 seconds...
+2024-08-06 14:48:29,297 - server.websockets.connection - INFO - Connecting to ws://192.168.215.96:5000/ws?client=raspberry
